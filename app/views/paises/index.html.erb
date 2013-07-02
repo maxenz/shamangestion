@@ -1,0 +1,31 @@
+<div class="contenedorPrincipal">
+
+  <h4>Pa&iacute;ses</h4>
+  <hr>
+
+
+<table id="paises" class="display" style="border: silver solid 1px; width: 700px; margin-left:auto;margin-right:auto;font-size: 11px;">
+  <thead>
+  <tr>
+    <th>C&oacute;digo</th>
+    <th>Descripcion</th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @paises.each do |pais| %>
+  <tr>
+    <td><%= pais.codigo %></td>
+    <td><%= pais.descripcion %></td>
+    <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_pais_path(pais) %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, pais, :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<%= link_to 'Nuevo Pais', new_pais_path, :class => 'btn btn-info btnNuevo' %>
+</div>
+
+

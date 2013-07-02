@@ -1,0 +1,32 @@
+<div class="contenedorPrincipal">
+
+  <h4>Provincias</h4>
+  <hr>
+
+
+<table id="provincias" class="display" style="border: silver solid 1px; width: 700px; margin-left:auto;margin-right:auto;font-size: 11px;">
+  <thead>
+  <tr>
+    <th>C&oacute;digo</th>
+    <th>Descripcion</th>
+    <th>Pa&iacute;s</th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @provincias.each do |provincia| %>
+  <tr>
+    <td><%= provincia.codigo %></td>
+    <td><%= provincia.descripcion %></td>
+    <td><%= provincia.pais.descripcion %></td>
+    <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_provincia_path(provincia) %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, provincia, :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<%= link_to 'Nueva Provincia', new_provincia_path, :class => 'btn btn-info btnNuevo' %>
+</div>
+

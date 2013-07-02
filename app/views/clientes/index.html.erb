@@ -1,0 +1,43 @@
+<div class="contenedorPrincipal">
+
+  <h4>Clientes</h4>
+  <hr>
+
+
+<table id="clientes" class="display" style="border: silver solid 1px; width: 900px; margin-left:auto;margin-right:auto;font-size: 11px;">
+  <thead>
+  <tr>
+    <th>Raz&oacute;n Social</th>
+    <th>Calle</th>
+    <th>Altura</th>
+    <th>Piso</th>
+    <th>Departamento</th>
+    <th>Referencia</th>
+    <th>Sitio Web</th>
+    <th>Fecha de Ingreso</th>
+    <th>Localidad</th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @clientes.each do |cliente| %>
+  <tr>
+    <td><%= cliente.razonSocial %></td>
+    <td><%= cliente.dmCalle %></td>
+    <td><%= cliente.dmAltura %></td>
+    <td><%= cliente.dmPiso %></td>
+    <td><%= cliente.dmDepto %></td>
+    <td><%= cliente.dmReferencia %></td>
+    <td><%= cliente.sitioWeb %></td>
+    <td><%= cliente.fecIngreso %></td>
+    <td><%= cliente.localidad.descripcion %></td>
+    <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_cliente_path(cliente) %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, cliente, :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<%= link_to 'Nuevo Cliente', new_cliente_path, :class => 'btn btn-info btnNuevo' %>
+</div>

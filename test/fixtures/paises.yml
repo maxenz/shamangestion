@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  AbreviaturaId: MyString
+  Descripcion: MyString
+
+two:
+  AbreviaturaId: MyString
+  Descripcion: MyString

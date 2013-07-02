@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  razonSocial: MyString
+  dmCalle: MyString
+  dmAltura: 
+  dmPiso: 1
+  dmDepto: MyString
+  dmReferencia: MyString
+  domicilio: MyString
+  sitioWeb: MyString
+  fecIngreso: 2013-07-01
+
+two:
+  razonSocial: MyString
+  dmCalle: MyString
+  dmAltura: 
+  dmPiso: 1
+  dmDepto: MyString
+  dmReferencia: MyString
+  domicilio: MyString
+  sitioWeb: MyString
+  fecIngreso: 2013-07-01

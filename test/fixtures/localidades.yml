@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  AbreviaturaId: MyString
+  Descripcion: MyString
+  ProvinciaId: 
+  PartidoId: 
+  flgDefault: 
+
+two:
+  AbreviaturaId: MyString
+  Descripcion: MyString
+  ProvinciaId: 
+  PartidoId: 
+  flgDefault: 

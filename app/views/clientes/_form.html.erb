@@ -1,0 +1,17 @@
+<%= simple_form_for(@cliente, :html => {:class => 'formPrincipal'}) do |f| %>
+
+    <h3>Formulario de Registro de Clientes</h3>
+      <hr />
+
+  <%= f.input :razonSocial, label: 'Razón Social' %>
+  <%= f.input :dmCalle,label: 'Calle' %>
+  <%= f.input :dmAltura,label: 'Altura' %>
+  <%= f.input :dmPiso,label: 'Piso' %>
+  <%= f.input :dmDepto,label: 'Departamento' %>
+  <%= f.input :dmReferencia,label: 'Referencia' %>
+  <%= f.input :sitioWeb,label: 'Sitio Web' %>
+  <%= f.input :fecIngreso,label: 'Fecha de Ingreso' %>
+  <%= f.input :localidad_id,collection: Localidad.all(order: 'codigo'), label_method: :descripcion, value_method: :id %>
+  <%= f.button :submit, 'Guardar', :class => 'btn btn-success' %>
+
+<% end %>

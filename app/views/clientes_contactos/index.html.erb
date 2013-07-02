@@ -1,0 +1,28 @@
+<div class="contenedorPrincipal">
+
+  <h4>Contactos</h4>
+  <hr>
+
+
+<table>
+  <thead>
+  <tr>
+    <th>Nombre</th>
+    <th>Email</th>
+    <th>Telefono</th>
+  </tr>
+</thead>
+<tbody>
+<% @clientes_contactos.each do |cliente_contacto| %>
+  <tr>
+    <td><%= cliente_contacto.nombre %></td>
+    <td><%= cliente_contacto.email %></td>
+    <td><%= cliente_contacto.cliente.razonSocial %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+
+</div>
+

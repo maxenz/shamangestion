@@ -1,0 +1,11 @@
+<%= simple_form_for(@pais, :html => {:class => 'formPrincipal'}) do |f| %>
+    <h3>Formulario de Registro de Pa&iacute;ses</h3>
+      <hr />
+
+  <%= f.input :codigo, label: 'Código de País' %>
+  <%= f.input :descripcion,label: 'País' %>
+  <%= f.button :submit, 'Guardar', :class => 'btn btn-success' %>
+
+<% end %>
+
+
