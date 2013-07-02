@@ -8,13 +8,10 @@
   <thead>
   <tr>
     <th>Raz&oacute;n Social</th>
-    <th>Calle</th>
-    <th>Altura</th>
-    <th>Piso</th>
-    <th>Departamento</th>
-    <th>Referencia</th>
-    <th>Sitio Web</th>
-    <th>Fecha de Ingreso</th>
+    <th>Email</th>
+    <th>Tel&eacute;fono</th>
+    <th>Pa&iacute;s</th>
+    <th>Provincia</th>
     <th>Localidad</th>
     <th></th>
     <th></th>
@@ -24,13 +21,10 @@
 <% @clientes.each do |cliente| %>
   <tr>
     <td><%= cliente.razonSocial %></td>
-    <td><%= cliente.dmCalle %></td>
-    <td><%= cliente.dmAltura %></td>
-    <td><%= cliente.dmPiso %></td>
-    <td><%= cliente.dmDepto %></td>
-    <td><%= cliente.dmReferencia %></td>
-    <td><%= cliente.sitioWeb %></td>
-    <td><%= cliente.fecIngreso %></td>
+    <td><%= cliente.email %></td>
+    <td><%= cliente.telefono %></td>
+    <td><%= cliente.localidad.provincia.descripcion %></td>
+    <td><%= cliente.localidad.provincia.pais.descripcion %></td>
     <td><%= cliente.localidad.descripcion %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_cliente_path(cliente) %></td>
     <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, cliente, :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>

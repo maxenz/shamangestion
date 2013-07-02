@@ -6,8 +6,11 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
-gem 'activerecord-sqlserver-adapter'
-gem 'ruby-odbc'
+group :development do
+	gem 'activerecord-sqlserver-adapter'
+	gem 'ruby-odbc'
+end
+
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'country_select'
@@ -17,6 +20,9 @@ gem 'will_paginate'
 gem 'jqgrid_for_rails', :git => 'http://github.com/Juanmcuello/jqgrid_for_rails.git'
 gem 'twitter-bootstrap-rails-confirm'
 gem 'thin'
+group :production do
+  gem 'pg'
+end
 
 
 # Gems used only for assets and not required

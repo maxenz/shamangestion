@@ -2,7 +2,6 @@ class ClientesContactosController < ApplicationController
   # GET /clientes_contactos
   # GET /clientes_contactos.json
 
-
   def index
     @clientes_contactos = ClientesContacto.all
     
@@ -44,7 +43,8 @@ class ClientesContactosController < ApplicationController
 
   # GET /clientes_contactos/1/edit
   def edit
-    @clientes_contacto = ClientesContacto.find(params[:id])
+    @cliente = Cliente.find(params[:cliente_id])
+    @clientes_contacto = @cliente.clientes_contactos.find(params[:id])
   end
 
   # POST /clientes_contactos
@@ -68,11 +68,13 @@ class ClientesContactosController < ApplicationController
   # PUT /clientes_contactos/1
   # PUT /clientes_contactos/1.json
   def update
-    @clientes_contacto = ClientesContacto.find(params[:id])
+
+    @cliente = Cliente.find(params[:cliente_id])
+    @clientes_contacto = @cliente.clientes_contactos.find(params[:id])
 
     respond_to do |format|
       if @clientes_contacto.update_attributes(params[:clientes_contacto])
-        format.html { redirect_to @clientes_contacto, notice: 'Clientes contacto was successfully updated.' }
+        format.html { redirect_to edit_cliente_path(@cliente) }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -89,7 +91,7 @@ class ClientesContactosController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to clientes_contactos_url }
-      format.json { head :no_content }
+      format.js   { render :nothing => true }
     end
   end
 end

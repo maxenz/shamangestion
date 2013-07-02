@@ -1,4 +1,3 @@
-<% cliente = @cliente %>
 <div style="text-align:center">
 <h3> Contactos </h3>
 
@@ -18,13 +17,13 @@
     <td><%= cont.nombre %></td>
     <td><%= cont.email %></td>
     <td><%= cont.telefono %></td>
-    <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_cliente_clientes_contacto_path(cont.cliente,cont) %></td>
-    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, cliente_clientes_contacto_path(cont.cliente,cont), :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
+    <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, [:edit, @cliente, cont] %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, [@cliente,cont], :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
   </tr>
 <% end %>
 </tbody>
 </table>
 
-<%= link_to 'Nuevo Contacto', new_cliente_clientes_contacto_path(cliente), :class => 'btn btn-info btnNuevo' %>
+<%= link_to 'Nuevo Contacto', new_cliente_clientes_contacto_path(@cliente), :class => 'btn btn-info btnNuevo' %>
 
 </div>
