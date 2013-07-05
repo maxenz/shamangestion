@@ -18,21 +18,12 @@
 //= require dataTables/jquery.dataTables.bootstrap
 //= require_tree .
 
- $.extend( $.fn.dataTableExt.oStdClasses, {
-      "sWrapper": "dataTables_wrapper form-inline"
-    } );
-
 $(document).ready(function(){
 
    	$('.delete_element').bind('ajax:success', function() {
 		 $(this).closest('tr').fadeOut();
 	});
 
-/*	$('a.next').text('Siguiente');
-	$('a.previous').text('Anterior');
-	$('a.first').text('Primero');
-	$('a.last').text('Último');
-	$('table.dataTable tr').css("height","32px");*/
 
 	$.fn.twitter_bootstrap_confirmbox.defaults = {
 	    fade: true,
@@ -42,4 +33,15 @@ $(document).ready(function(){
 	    proceed_class: "btn proceed btn-danger"
 	};
 
+	$.extend( $.fn.dataTableExt.oStdClasses, {
+    	"sWrapper": "dataTables_wrapper form-inline"
+	});
+
 });
+
+function hoverBackgroundTable() {
+
+	$('table.dataTable td').bind('mouseenter', function () { $(this).parent().children().each(function(){$(this).addClass('hoverTabla');}); });
+    $('table.dataTable td').bind('mouseleave', function () { $(this).parent().children().each(function(){$(this).removeClass('hoverTabla');}); });
+
+}

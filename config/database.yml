@@ -5,12 +5,18 @@
 #   gem 'sqlite3'
 
 development:
-  adapter: sqlserver
-  dsn: gestion
-  mode: odbc
-  database: Gestion
-  username: dbaadmin
-  password: yeike
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+
+# development:
+#   adapter: sqlserver
+#   dsn: gestion
+#   mode: odbc
+#   database: Gestion
+#   username: dbaadmin
+#   password: yeike
 
 production:
   adapter: mysql2
