@@ -16,6 +16,7 @@
 //= require twitter/bootstrap/rails/confirm
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
+//= require jquery.ui.all
 //= require_tree .
 
 $(document).ready(function(){
@@ -23,6 +24,8 @@ $(document).ready(function(){
    	$('.delete_element').bind('ajax:success', function() {
 		 $(this).closest('tr').fadeOut();
 	});
+
+
 
 
 	$.fn.twitter_bootstrap_confirmbox.defaults = {
@@ -43,5 +46,5 @@ function hoverBackgroundTable() {
 
 	$('table.dataTable td').bind('mouseenter', function () { $(this).parent().children().each(function(){$(this).addClass('hoverTabla');}); });
     $('table.dataTable td').bind('mouseleave', function () { $(this).parent().children().each(function(){$(this).removeClass('hoverTabla');}); });
-
+    $('table.dataTable tr').not(':first').css("background-color","#D2DEE8");
 }

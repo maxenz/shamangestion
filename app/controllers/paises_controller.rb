@@ -10,8 +10,6 @@ class PaisesController < ApplicationController
     end
   end
 
- 
-
   # GET /paises/new
   # GET /paises/new.json
   def new
@@ -71,5 +69,9 @@ class PaisesController < ApplicationController
       format.html { redirect_to paises_url }
       format.js   { render :nothing => true}
     end
+  end
+
+  def get_paises
+    @paises = Pais.all
   end
 end

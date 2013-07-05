@@ -7,14 +7,15 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
-#gem 'activerecord-sqlserver-adapter'
-#gem 'ruby-odbc'
+gem 'activerecord-sqlserver-adapter'
+gem 'ruby-odbc'
 gem 'simple_form'
 gem 'country_select'
 gem "twitter-bootstrap-rails"
 gem 'twitter-bootstrap-rails-confirm'
 gem 'jquery-rails'
-
+gem 'will_paginate'
+gem 'jquery-ui-rails'
 group :production do
   gem 'mysql2'
 end

@@ -4,6 +4,7 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require dataTables/jquery.dataTables.bootstrap
+ *= require jquery.ui.all
  *= require_tree .
 */
 
@@ -51,7 +52,7 @@ div.dataTables_length select {
  
 div.dataTables_filter label {
     float: right;
-    width: 460px;
+    width: 300px;
 }
  
 div.dataTables_info {
@@ -67,6 +68,12 @@ table {
     margin: 1em 0;
     clear: both;
 }
+
+.dataTables_info {
+
+    display:none;
+}
+
 /******** HOVER DE LA TABLA ******/
 
 

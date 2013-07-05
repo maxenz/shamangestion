@@ -1,8 +1,13 @@
 Shamangestion::Application.routes.draw do
 
+  resources :licencias
+
+  resources :productos
+
   resources :clientes do
       resources :clientes_contactos 
   end
+
    
   resources :provincias
 

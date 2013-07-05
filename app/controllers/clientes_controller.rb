@@ -4,7 +4,6 @@ class ClientesController < ApplicationController
   def index
   #  @clientes = Cliente.all
     @clientes = Cliente.all(:joins => :clientes_contactos, :select => "clientes.*, clientes_contactos.telefono, clientes_contactos.email ",:conditions => ["clientes_contactos.flgPrincipal = ?", 1])
-    @clientes_grid = initialize_grid(Cliente, :per_page => 8)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @clientes }

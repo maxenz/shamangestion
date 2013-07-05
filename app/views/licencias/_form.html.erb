@@ -1,0 +1,12 @@
+<%= simple_form_for(@licencia) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :serial %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<h1><%=	@licencia.productos %></h1>

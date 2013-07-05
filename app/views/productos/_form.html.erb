@@ -1,0 +1,10 @@
+
+<%= simple_form_for(@producto, :html => {:class => 'formPrincipal'}) do |f| %>
+    <h3>Formulario de Registro de Productos</h3>
+      <hr />
+
+  <%= f.input :nro_producto, label: 'Nro de Producto' %>
+  <%= f.input :descripcion,label: 'Producto' %>
+  <%= f.button :submit, 'Guardar', :class => 'btn btn-success' %>
+
+<% end %>

@@ -16,6 +16,7 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'localidad', 'localidades'
   inflect.irregular 'cliente','clientes'
   inflect.irregular 'clienteContacto','clienteContactos'
+  inflect.irregular 'licencia','licencias'
  end
 
 
