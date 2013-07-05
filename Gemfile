@@ -6,22 +6,17 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3'
-group :development do
-	gem 'activerecord-sqlserver-adapter'
-	gem 'ruby-odbc'
-end
 
-gem 'bootstrap-sass'
+gem 'activerecord-sqlserver-adapter'
+gem 'ruby-odbc'
 gem 'simple_form'
 gem 'country_select'
-gem 'jquery-ui-rails'
-gem 'wice_grid' , '3.2.1'
-gem 'will_paginate'
-gem 'jqgrid_for_rails', :git => 'http://github.com/Juanmcuello/jqgrid_for_rails.git'
+gem "twitter-bootstrap-rails"
 gem 'twitter-bootstrap-rails-confirm'
-gem 'thin'
+gem 'jquery-rails'
+
 group :production do
-  gem 'pg'
+  gem 'mysql2'
 end
 
 
@@ -30,16 +25,11 @@ end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
-
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+  gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

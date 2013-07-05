@@ -3,7 +3,6 @@ class PaisesController < ApplicationController
   # GET /paises.json
   def index
     @paises = Pais.all
-    @paises_grid = initialize_grid(Pais, :per_page => 8)
 
     respond_to do |format|
       format.html # index.html.erb

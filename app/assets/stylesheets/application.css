@@ -1,0 +1,72 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require dataTables/jquery.dataTables.bootstrap
+ *= require_tree .
+*/
+
+
+
+body {
+    padding-bottom: 40px;
+    padding-top: 60px;
+}
+
+.sidebar-nav {
+    padding: 9px 0;
+}
+
+.sidebar-nav-fixed {
+    position:fixed;
+    top:60px;
+    width:18%;
+}
+
+@media (max-width: 767px) {
+    .sidebar-nav-fixed {
+        position:static;
+        width:auto;
+    }
+}
+
+@media (max-width: 979px) {
+    .sidebar-nav-fixed {
+        top:70px;
+    }
+}
+
+/***** PARA EL DISEÑO DE LAS GRID ******/
+
+
+
+/************************/
+
+.contenedorPrincipal {
+    
+    background:#eeeeee;
+    padding-top:10px;
+    padding-bottom:10px;
+    text-align:center;
+}
+
+.btnNuevo {
+    
+    margin-top:10px;
+}
+
+.formPrincipal {
+    
+    text-align:center;
+    background:#eeeeee;
+    padding-top:15px;
+    padding-bottom:15px;
+
+}
+
+.formPrincipal label {
+    
+    font-weight:bold;
+}
+

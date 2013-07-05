@@ -11,3 +11,12 @@ development:
   database: Gestion
   username: dbaadmin
   password: yeike
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: gestion_production
+  username: maxenz
+  password: elmaxo
+  host: 127.0.0.1
+  port: 3306

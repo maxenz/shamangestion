@@ -12,12 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.ui.all
-//= require wice_grid
-//= require bootstrap
+//= require twitter/bootstrap
 //= require twitter/bootstrap/rails/confirm
 //= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap
 //= require_tree .
+
+ $.extend( $.fn.dataTableExt.oStdClasses, {
+      "sWrapper": "dataTables_wrapper form-inline"
+    } );
 
 $(document).ready(function(){
 
@@ -25,11 +28,11 @@ $(document).ready(function(){
 		 $(this).closest('tr').fadeOut();
 	});
 
-	$('a.next').text('Siguiente');
+/*	$('a.next').text('Siguiente');
 	$('a.previous').text('Anterior');
 	$('a.first').text('Primero');
 	$('a.last').text('Último');
-	$('table.dataTable tr').css("height","32px");
+	$('table.dataTable tr').css("height","32px");*/
 
 	$.fn.twitter_bootstrap_confirmbox.defaults = {
 	    fade: true,
