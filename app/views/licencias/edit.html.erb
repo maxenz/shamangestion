@@ -1,6 +1,25 @@
 <h1>Editing licencia</h1>
 
-<%= render 'form' %>
+<%= simple_form_for(@licencia) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :serial %>
+  </div>
+
+<% for producto in Producto.find(:all) %>  
+    <div>  
+      <%= check_box_tag "licencia[producto_ids][]", producto.id, @licencia.productos.include?(producto) %>  
+      <%= producto.descripcion %>  
+    </div>  
+<% end %>  
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+
 
 <%= link_to 'Show', @licencia %> |
 <%= link_to 'Back', licencias_path %>

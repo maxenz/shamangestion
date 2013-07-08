@@ -5,6 +5,11 @@
   <%= @licencia.serial %>
 </p>
 
+<ol>
+  <% for producto in @licencia.productos %>
+  <li><%= h producto.descripcion %></li>
+  <% end %>
+</ol>
 
 <%= link_to 'Edit', edit_licencia_path(@licencia) %> |
 <%= link_to 'Back', licencias_path %>

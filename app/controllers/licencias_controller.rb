@@ -25,6 +25,7 @@ class LicenciasController < ApplicationController
   # GET /licencias/new.json
   def new
     @licencia = Licencia.new
+    3.times { @licencia.productos.build }
 
     respond_to do |format|
       format.html # new.html.erb
