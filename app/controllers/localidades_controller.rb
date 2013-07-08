@@ -1,6 +1,6 @@
 class LocalidadesController < ApplicationController
 
-  def get_provincias
+  def get_provincias  
     @pais_id = params[:pais_id]
     @provincias = Provincia.where(["pais_id = ?", @pais_id])
     respond_to do |format|
@@ -11,8 +11,9 @@ class LocalidadesController < ApplicationController
   # GET /localidades
   # GET /localidades.json
   def index
-    @localidades = Localidad.all
-    @paises = Pais.all
+    @localidades = Localidad.where("provincia_id = ?", params[:provincia_id])
+    @pais = Pais.find(params[:pais_id])
+    @provincia = Provincia.find(params[:provincia_id])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @localidades }
@@ -33,8 +34,9 @@ class LocalidadesController < ApplicationController
   # GET /localidades/new
   # GET /localidades/new.json
   def new
+    @pais = Pais.find(params[:pais_id])
+    @provincia = Provincia.find(params[:provincia_id])
     @localidad = Localidad.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @localidad }
@@ -44,6 +46,8 @@ class LocalidadesController < ApplicationController
   # GET /localidades/1/edit
   def edit
     @localidad = Localidad.find(params[:id])
+    @pais = Pais.find(params[:pais_id])
+    @provincia = Provincia.find(params[:provincia_id])
   end
 
   # POST /localidades

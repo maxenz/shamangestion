@@ -7,8 +7,8 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
-#gem 'activerecord-sqlserver-adapter'
-#gem 'ruby-odbc'
+gem 'activerecord-sqlserver-adapter'
+gem 'ruby-odbc'
 gem 'simple_form'
 gem 'country_select'
 gem "twitter-bootstrap-rails"

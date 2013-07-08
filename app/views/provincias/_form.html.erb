@@ -1,9 +1,8 @@
-<%= simple_form_for(@provincia, :html => {:class => 'formPrincipal'}) do |f| %>
+<%= simple_form_for([@pais,@provincia], :html => {:class => 'formPrincipal'}) do |f| %>
 
     <h3>Formulario de Registro de Provincias</h3>
       <hr />
 
-  <%= f.input :pais_id, collection: Pais.all(order: 'codigo'),prompt: "Seleccione un pais", label_method: :descripcion, value_method: :id  %>
   <%= f.input :codigo, label: 'Código de Provincia' %>
   <%= f.input :descripcion,label: 'Provincia' %>
   <%= f.button :submit, 'Guardar', :class => 'btn btn-success' %>

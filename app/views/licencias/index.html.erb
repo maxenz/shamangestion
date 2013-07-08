@@ -9,15 +9,13 @@
     <th>Serial</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 </thead>
 <tbody>
 <% @licencias.each do |licencia| %>
   <tr>
     <td><%= licencia.serial %></td>
-    <td><%= link_to '<i class="icon-search icon-black"></i>'.html_safe,'', :remote => true %></td>
-    <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_licencia_path(licencia) %></td>
+    <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_licencia_path(licencia), :remote => true %></td>
     <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, licencia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
@@ -26,8 +24,21 @@
 </div>
 <br />
 
-<%= link_to 'Nueva Licencia', new_licencia_path, :class => 'btn btn-info btnNuevo ' %>
+<%= link_to 'Nueva Licencia', new_licencia_path, :class => 'btn btn-info btnNuevo', :remote => true %>
 
+</div>
+
+<div class="modal hide fade" id="modLicencia">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>Creaci&oacute;n / Actualizaci&oacute;n de Licencias</h3>
+  </div>
+  <div class="modal-body">
+    <div id="modContLicencia">
+
+    </div>
+    
+  </div>
 </div>
 
 

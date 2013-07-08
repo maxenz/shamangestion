@@ -8,14 +8,11 @@ Shamangestion::Application.routes.draw do
       resources :clientes_contactos 
   end
 
-   
-  resources :provincias
-
-  resources :localidades do
-    get :get_provincias, on: :collection
+  resources :paises do
+    resources :provincias do
+      resources :localidades
+    end
   end
-
-  resources :paises
 
   root to: 'home#index'
 

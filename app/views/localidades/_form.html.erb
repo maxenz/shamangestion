@@ -1,19 +1,8 @@
-<%= simple_form_for(@localidad, :html => {:class => 'formPrincipal'}) do |f| %>
+<%= simple_form_for([@pais,@provincia,@localidad], :html => {:class => 'formPrincipal'}) do |f| %>
 
     <h3>Formulario de Registro de Localidades</h3>
       <hr />
 
-  <div class="control-group">
-      <label class="control-label">Pa&iacute;s</label>
-      <div class="controls">
-        <select id="selectPaises">
-            <option selected=selected>Seleccione Pa&iacute;s</option>
-            <option value="10">ARGENTINA</option>
-            <option value="30">JAMAICA</option>
-        </select>
-      </div>
-   </div>
-  <%= f.input :provincia_id, collection: Provincia.all(order: 'codigo'), label_method: :descripcion, value_method: :id,disabled: true  %>
   <%= f.input :codigo, label: 'Código de Localidad' %>
   <%= f.input :descripcion,label: 'Localidad' %>
   <%= f.button :submit, 'Guardar', :class => 'btn btn-success' %>

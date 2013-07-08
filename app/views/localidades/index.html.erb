@@ -22,12 +22,12 @@
     <td><%= localidad.descripcion %></td>
     <td><%= localidad.provincia.pais.descripcion %></td>
     <td><%= localidad.provincia.descripcion %></td>
-    <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_localidad_path(localidad) %></td>
-    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, localidad, :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
+    <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_pais_provincia_localidad_path(@pais,@provincia,localidad) %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, pais_provincia_localidad_path(@pais,@provincia,localidad), :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
   </tr>
 <% end %>
 </tbody>
 </table>
 
-<%= link_to 'Nueva Localidad', new_localidad_path, :class => 'btn btn-info btnNuevo' %>
+<%= link_to 'Nueva Localidad', new_pais_provincia_localidad_path(@pais,@provincia), :class => 'btn btn-info btnNuevo' %>
 </div>

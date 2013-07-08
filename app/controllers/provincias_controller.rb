@@ -2,8 +2,8 @@ class ProvinciasController < ApplicationController
   # GET /provincias
   # GET /provincias.json
   def index
-    @provincias = Provincia.all
-
+    @provincias = Provincia.where("pais_id = ?",params[:pais_id])
+    @pais = Pais.find(params[:pais_id])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @provincias }
@@ -13,6 +13,7 @@ class ProvinciasController < ApplicationController
   # GET /provincias/new
   # GET /provincias/new.json
   def new
+    @pais = Pais.find(params[:pais_id])
     @provincia = Provincia.new
 
     respond_to do |format|
@@ -23,17 +24,19 @@ class ProvinciasController < ApplicationController
 
   # GET /provincias/1/edit
   def edit
+    @pais = Pais.find(params[:pais_id])
     @provincia = Provincia.find(params[:id])
   end
 
   # POST /provincias
   # POST /provincias.json
   def create
-    @provincia = Provincia.new(params[:provincia])
+    @pais = Pais.find(params[:pais_id])
+    @provincia = @pais.provincias.new(params[:provincia])
 
     respond_to do |format|
       if @provincia.save
-        format.html { redirect_to provincias_url }
+        format.html { redirect_to pais_provincias_path(@pais) }
         format.json { render json: @provincia, status: :created, location: @provincia }
       else
         format.html { render action: "new" }
@@ -45,11 +48,12 @@ class ProvinciasController < ApplicationController
   # PUT /provincias/1
   # PUT /provincias/1.json
   def update
+
     @provincia = Provincia.find(params[:id])
 
     respond_to do |format|
       if @provincia.update_attributes(params[:provincia])
-        format.html { redirect_to provincias_url }
+        format.html { redirect_to pais_provincias_path(@provincia.pais) }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

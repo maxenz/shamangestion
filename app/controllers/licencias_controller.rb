@@ -25,17 +25,20 @@ class LicenciasController < ApplicationController
   # GET /licencias/new.json
   def new
     @licencia = Licencia.new
-    3.times { @licencia.productos.build }
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @licencia }
+
+      format.js { render 'licenciaProducto'}
     end
   end
 
   # GET /licencias/1/edit
   def edit
     @licencia = Licencia.find(params[:id])
+    respond_to do |format|
+      format.js { render 'licenciaProducto'}
+    end
   end
 
   # POST /licencias
@@ -45,7 +48,7 @@ class LicenciasController < ApplicationController
 
     respond_to do |format|
       if @licencia.save
-        format.html { redirect_to @licencia, notice: 'Licencia was successfully created.' }
+        format.html { redirect_to licencias_url }
         format.json { render json: @licencia, status: :created, location: @licencia }
       else
         format.html { render action: "new" }
@@ -61,10 +64,10 @@ class LicenciasController < ApplicationController
 
     respond_to do |format|
       if @licencia.update_attributes(params[:licencia])
-        format.html { redirect_to @licencia, notice: 'Licencia was successfully updated.' }
+        format.html { redirect_to licencias_url}
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { redirect_to licencias_url  }
         format.json { render json: @licencia.errors, status: :unprocessable_entity }
       end
     end

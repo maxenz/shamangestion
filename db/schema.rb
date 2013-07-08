@@ -65,11 +65,9 @@ ActiveRecord::Schema.define(:version => 20130705175844) do
     t.datetime "updated_at",     :null => false
   end
 
-  create_table "licencias_productos", :force => true do |t|
-    t.integer  "licencia_id"
-    t.integer  "producto_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+  create_table "licencias_productos", :id => false, :force => true do |t|
+    t.integer "licencia_id"
+    t.integer "producto_id"
   end
 
   create_table "localidades", :force => true do |t|

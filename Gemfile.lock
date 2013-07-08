@@ -29,6 +29,8 @@ GEM
       activesupport (= 3.2.13)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
+    activerecord-sqlserver-adapter (3.2.10)
+      activerecord (~> 3.2.0)
     activeresource (3.2.13)
       activemodel (= 3.2.13)
       activesupport (= 3.2.13)
@@ -90,6 +92,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    ruby-odbc (0.99995)
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -125,6 +128,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  activerecord-sqlserver-adapter
   coffee-rails (~> 3.2.1)
   country_select
   jquery-datatables-rails!
@@ -132,6 +136,7 @@ DEPENDENCIES
   jquery-ui-rails
   mysql2
   rails (= 3.2.13)
+  ruby-odbc
   sass-rails (~> 3.2.3)
   simple_form
   sqlite3

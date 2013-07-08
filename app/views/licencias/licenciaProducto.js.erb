@@ -1,0 +1,7 @@
+$(document).ready(function(){
+
+	$('#modContLicencia').html("<%= escape_javascript(render(:partial => 'form', :locals => {:licencia => @licencia})) %>");
+	$('#modLicencia').modal('show');
+
+});
+
