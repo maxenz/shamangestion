@@ -80,8 +80,7 @@ class LicenciasController < ApplicationController
     @licencia.destroy
 
     respond_to do |format|
-      format.html { redirect_to licencias_url }
-      format.json { head :no_content }
+      format.js { render :nothing => true }
     end
   end
 end

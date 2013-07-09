@@ -10,10 +10,10 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery_ujs
 //= require twitter/bootstrap
 //= require twitter/bootstrap/rails/confirm
+//= require jquery
+//= require jquery_ujs
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
 //= require jquery.ui.all
@@ -24,9 +24,6 @@ $(document).ready(function(){
    	$('.delete_element').bind('ajax:success', function() {
 		 $(this).closest('tr').fadeOut();
 	});
-
-
-
 
 	$.fn.twitter_bootstrap_confirmbox.defaults = {
 	    fade: true,

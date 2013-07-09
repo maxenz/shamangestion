@@ -66,7 +66,6 @@ class PaisesController < ApplicationController
     @pais.destroy
 
     respond_to do |format|
-      format.html { redirect_to paises_url }
       format.js   { render :nothing => true}
     end
   end

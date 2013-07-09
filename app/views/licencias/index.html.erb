@@ -16,7 +16,7 @@
   <tr>
     <td><%= licencia.serial %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_licencia_path(licencia), :remote => true %></td>
-    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, licencia, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, licencia, :class => 'delete_element', method: :delete, data: { confirm: 'Desea eliminar la licencia?'} , :remote => true %></td>
   </tr>
 <% end %>
 </tbody>
@@ -24,7 +24,7 @@
 </div>
 <br />
 
-<%= link_to 'Nueva Licencia', new_licencia_path, :class => 'btn btn-info btnNuevo', :remote => true %>
+<%= link_to 'Nueva Licencia', new_licencia_path, :class => 'btn btn-primary', :remote => true %>
 
 </div>
 

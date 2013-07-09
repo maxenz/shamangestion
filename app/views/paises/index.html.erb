@@ -1,6 +1,6 @@
 <div class="contenedorPrincipal">
 
-  <h4>Pa&iacute;ses</h4>
+  <h2>Pa&iacute;ses</h2>
   <hr />
 
 <table id="paises" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered display">
@@ -20,13 +20,13 @@
     <td><%= pais.descripcion %></td>
     <td><%= link_to '<i class="icon-search icon-black"></i>'.html_safe, pais_provincias_path(pais) %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_pais_path(pais) %></td>
-    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, pais, :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, pais, :class => 'delete_element', method: :delete, data: { confirm: 'Seguro que desea eliminar el registro?' }, :remote => true %></td>
   </tr>
 <% end %>
 </tbody>
 </table>
 
-<%= link_to 'Nuevo Pais', new_pais_path, :class => 'btn btn-info btnNuevo' %>
+<%= link_to 'Nuevo Pais', new_pais_path, :class => 'btn btn-primary' %>
 </div>
 
 

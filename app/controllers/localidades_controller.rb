@@ -53,11 +53,14 @@ class LocalidadesController < ApplicationController
   # POST /localidades
   # POST /localidades.json
   def create
-    @localidad = Localidad.new(params[:localidad])
+
+    @provincia = Provincia.find(params[:provincia_id])
+    @localidad = @provincia.localidades.new(params[:localidad])
+
 
     respond_to do |format|
       if @localidad.save
-        format.html { redirect_to localidades_url }
+        format.html { redirect_to pais_provincia_localidades_path(@provincia.pais,@provincia) }
         format.json { render json: @localidad, status: :created, location: @localidad }
       else
         format.html { render action: "new" }
@@ -73,7 +76,7 @@ class LocalidadesController < ApplicationController
 
     respond_to do |format|
       if @localidad.update_attributes(params[:localidad])
-        format.html { redirect_to localidades_url }
+        format.html { redirect_to pais_provincia_localidades_path(@localidad.provincia.pais,@localidad.provincia) }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -89,8 +92,7 @@ class LocalidadesController < ApplicationController
     @localidad.destroy
 
     respond_to do |format|
-      format.html { redirect_to localidades_url }
-      format.js   { render :nothing => true }
+      format.js { render :nothing => true }
     end
   end
 end

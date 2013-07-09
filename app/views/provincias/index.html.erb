@@ -1,6 +1,6 @@
 <div class="contenedorPrincipal">
 
-  <h4>Provincias</h4>
+  <h2>Provincias</h2>
   <hr>
 
 
@@ -23,12 +23,12 @@
     <td><%= provincia.pais.descripcion %></td>
     <td><%= link_to '<i class="icon-search icon-black"></i>'.html_safe, pais_provincia_localidades_path(@pais,provincia) %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_pais_provincia_path(@pais,provincia) %></td>
-    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, pais_provincia_path(@pais,provincia), :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, pais_provincia_path(@pais,provincia), :class => 'delete_element', method: :delete, data: { confirm: 'Seguro que desea eliminar el registro?' }, :remote => true %></td>
   </tr>
 <% end %>
 </tbody>
 </table>
 
-<%= link_to 'Nueva Provincia', new_pais_provincia_path(@pais), :class => 'btn btn-info btnNuevo' %>
+<%= link_to 'Nueva Provincia', new_pais_provincia_path(@pais), :class => 'btn btn-primary' %>
 </div>
 
