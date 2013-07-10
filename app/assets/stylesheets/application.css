@@ -110,3 +110,31 @@ table {
     font-weight:bold;
 }
 
+/******* LOGIN FORM *************/
+
+#new_user {
+
+    width:14em;
+    margin:0px auto;
+}
+
+#loginTitle {
+
+    text-align:center;
+}
+
+#lnkNewPassword {
+
+    text-align:center;
+}
+
+.boolean{
+    float: left;
+    padding-bottom:8px;
+
+}
+
+.boolean.optional.control-label {
+
+    margin-right:30px;
+}

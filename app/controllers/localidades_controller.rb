@@ -1,5 +1,5 @@
 class LocalidadesController < ApplicationController
-
+  before_filter :authenticate_user!
   def get_provincias  
     @pais_id = params[:pais_id]
     @provincias = Provincia.where(["pais_id = ?", @pais_id])

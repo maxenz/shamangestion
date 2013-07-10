@@ -1,7 +1,7 @@
 class ClientesContactosController < ApplicationController
   # GET /clientes_contactos
   # GET /clientes_contactos.json
-
+  before_filter :authenticate_user!
   def index
     @clientes_contactos = ClientesContacto.all
     

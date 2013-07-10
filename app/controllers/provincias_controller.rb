@@ -1,6 +1,7 @@
 class ProvinciasController < ApplicationController
   # GET /provincias
   # GET /provincias.json
+    before_filter :authenticate_user!
   def index
     @provincias = Provincia.where("pais_id = ?",params[:pais_id])
     @pais = Pais.find(params[:pais_id])

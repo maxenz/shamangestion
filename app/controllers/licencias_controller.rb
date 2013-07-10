@@ -1,6 +1,7 @@
 class LicenciasController < ApplicationController
   # GET /licencias
   # GET /licencias.json
+    before_filter :authenticate_user!
   def index
     @licencias = Licencia.all
 

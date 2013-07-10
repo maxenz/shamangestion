@@ -1,6 +1,7 @@
 class PaisesController < ApplicationController
   # GET /paises
   # GET /paises.json
+    before_filter :authenticate_user!
   def index
     @paises = Pais.all
 

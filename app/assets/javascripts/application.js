@@ -10,13 +10,12 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require twitter/bootstrap
-//= require twitter/bootstrap/rails/confirm
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
+//= require twitter/bootstrap/rails/confirm
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
-//= require jquery.ui.all
 //= require_tree .
 
 $(document).ready(function(){

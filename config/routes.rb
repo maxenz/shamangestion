@@ -1,11 +1,13 @@
 Shamangestion::Application.routes.draw do
 
+  devise_for :users
+
   resources :licencias
 
   resources :productos
 
   resources :clientes do
-      resources :clientes_contactos 
+    resources :clientes_contactos 
   end
 
   resources :paises do
@@ -14,7 +16,14 @@ Shamangestion::Application.routes.draw do
     end
   end
 
-  root to: 'home#index'
+  authenticated :user do
+    root :to => "home#index"
+  end
+
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
+
 
 
   # The priority is based upon order of creation:

@@ -9,24 +9,24 @@
        <a class="brand" href="#">Shaman Gesti&oacute;n</a>
 
       <ul class="nav pull-right">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuario <b class="caret"></b></a>
+
+         <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Perfil</a></li>
+                <li><%= link_to "Cerrar Sesión", destroy_user_session_path, :method => :delete %></li>
+                <% if current_user.email = "maximilianopoggio@gmail.com" %>
                 <li class="divider"></li>
-                <li><a href="#">Cerrar Sesi&oacute;n</a></li>
+                <li><%= link_to "Crear Usuario", new_user_registration_path %></li>  
+                <% end %>
               </ul>
             </li>
+        <% else %>
+          <li><%= link_to "Iniciar Sesión", new_user_session_path %></li>
+        <% end %>
+
           </ul>
 
-
-       <div class="nav-collapse">
-         <ul class="nav">
-           <li class="active"><a href="#">Home</a></li>
-           <li><a href="#about">Acerca de</a></li>
-           <li><a href="#contact">Contacto</a></li>
-         </ul>
-       </div><!--/.nav-collapse -->
      </div>
    </div>
  </div>
