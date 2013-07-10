@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cliente_id: 1
+  licencia_id: 1
+  cnn_data_source: MyString
+  cnn_catalog: MyString
+  cnn_user: MyString
+  cnn_password: MyString
+
+two:
+  cliente_id: 1
+  licencia_id: 1
+  cnn_data_source: MyString
+  cnn_catalog: MyString
+  cnn_user: MyString
+  cnn_password: MyString

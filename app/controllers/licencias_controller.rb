@@ -29,17 +29,15 @@ class LicenciasController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-
-      format.js { render 'licenciaProducto'}
+      format.json { render json: @licencia}
     end
   end
 
   # GET /licencias/1/edit
   def edit
     @licencia = Licencia.find(params[:id])
-    respond_to do |format|
-      format.js { render 'licenciaProducto'}
-    end
+    @licencia_id = params[:id]
+    @cliente_licencia = ClientesLicencia.where(["licencia_id = ?", @licencia_id])   
   end
 
   # POST /licencias

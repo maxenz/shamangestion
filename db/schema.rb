@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709203527) do
+ActiveRecord::Schema.define(:version => 20130710155828) do
 
   create_table "clientes", :force => true do |t|
     t.string   "razonSocial"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20130709203527) do
     t.string   "cnn_data_source"
     t.string   "cnn_catalog"
     t.string   "cnn_user"
-    t.string   "ccn_password"
+    t.string   "cnn_pass"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

@@ -17,6 +17,7 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'cliente','clientes'
   inflect.irregular 'clienteContacto','clienteContactos'
   inflect.irregular 'licencia','licencias'
+  inflect.irregular 'licenciasLog', 'licenciasLogs'
  end
 
 

@@ -12,6 +12,12 @@
   <%= f.input :sitioWeb,label: 'Sitio Web' %>
   <%= f.input :fecIngreso,label: 'Fecha de Ingreso' %>
   <%= f.input :localidad_id,collection: Localidad.all(order: 'codigo'), label_method: :descripcion, value_method: :id %>
+  <%= f.simple_fields_for :clientes_contactos do |p| %>
+      <%= p.input :nombre %>
+      <%= p.input :email %>
+      <%= p.input :telefono %>
+      <%= p.input :flgPrincipal, :as => :hidden, :input_html => { :value => 1 } %>
+    <% end %>
   <%= f.button :submit, 'Guardar', :class => 'btn btn-success' %>
 
 <% end %>

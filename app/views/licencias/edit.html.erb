@@ -1,25 +1,15 @@
-<h1>Editing licencia</h1>
+<div class="contForm">
 
-<%= simple_form_for(@licencia) do |f| %>
-
-  <div class="form-inputs">
-    <%= f.input :serial %>
-  </div>
-
-<% for producto in Producto.find(:all) %>  
-    <div>  
-      <%= check_box_tag "licencia[producto_ids][]", producto.id, @licencia.productos.include?(producto) %>  
-      <%= producto.descripcion %>  
-    </div>  
-<% end %>  
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+<h2>Editar Licencia</h2>
+<div class="formCentrado">
+<% if @cliente_licencia.first.nil? %>
+	Estado: <span style="font-weight:bold;color:green">Disponible</span>
+<% else %>
+	Estado : Asignada a <span style="font-weight:bold;color:red"><%= @cliente_licencia.first.cliente.razonSocial %></span>
 <% end %>
+</div>
+<%= render 'form' %>
 
 
 
-
-<%= link_to 'Show', @licencia %> |
-<%= link_to 'Back', licencias_path %>
+</div>

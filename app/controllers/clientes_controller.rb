@@ -3,7 +3,7 @@ class ClientesController < ApplicationController
   # GET /clientes.json
     before_filter :authenticate_user!
   def index
-  #  @clientes = Cliente.all
+    #@clientes = Cliente.all
     @clientes = Cliente.all(:joins => :clientes_contactos, :select => "clientes.*, clientes_contactos.telefono, clientes_contactos.email ",:conditions => ["clientes_contactos.flgPrincipal = ?", 1])
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +15,7 @@ class ClientesController < ApplicationController
   # GET /clientes/new.json
   def new
     @cliente = Cliente.new
+    @cliente.clientes_contactos.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -26,6 +27,7 @@ class ClientesController < ApplicationController
   def edit
     @cliente = Cliente.find(params[:id])
     @cliente_contactos = ClientesContacto.where(["cliente_id = ?", @cliente])
+    @cliente_licencias = ClientesLicencia.where(["cliente_id = ?", @cliente])
   end
 
   # POST /clientes

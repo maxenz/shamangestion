@@ -138,3 +138,20 @@ table {
 
     margin-right:30px;
 }
+
+.formCentrado {
+
+    width:400px;
+    margin:0px auto;
+    padding-top:30px;
+}
+
+.contForm {
+
+    background-color:#eeeeee;
+}
+
+h2 {
+
+    text-align:center;
+}

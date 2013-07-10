@@ -1,0 +1,15 @@
+<%= simple_form_for([@cliente,@clientes_licencia]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :licencia,label_method: :serial, value_method: :id, include_blank: false, collection: Licencia.all(order: 'serial'), prompt: "Elige una licencia" %>
+    <%= f.input :cnn_data_source, :label => 'Data Source' %>
+    <%= f.input :cnn_catalog, :label => 'Catalog' %>
+    <%= f.input :cnn_user, :label => 'User' %>
+    <%= f.input :cnn_pass, :label => 'Password' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

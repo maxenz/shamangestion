@@ -10,23 +10,6 @@ development:
   pool: 5
   timeout: 5000
 
-# development:
-#   adapter: sqlserver
-#   dsn: gestion
-#   mode: odbc
-#   database: Gestion
-#   username: dbaadmin
-#   password: yeike
-
-# production:
-#   adapter: mysql2
-#   encoding: utf8
-#   database: gestion_production
-#   username: maxenz
-#   password: elmaxo
-#   host: 127.0.0.1
-#   port: 3306
-
 production:
   adapter: sqlite3
   database: db/development.sqlite3

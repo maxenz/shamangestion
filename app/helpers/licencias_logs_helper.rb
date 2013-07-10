@@ -1,0 +1,2 @@
+module LicenciasLogsHelper
+end

@@ -1,0 +1,30 @@
+<div class="contenedorPrincipal">
+
+  <h2>Visor de Logs</h2>
+  <hr />
+
+<table id="visorLogs" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered display">
+  <thead>
+  <tr>
+    <th>Cliente</th>
+    <th>Serial</th>
+    <th>Fecha y Hora</th>
+    <th>Direcci&oacute;n IP</th>
+    <th>Referencia</th>
+  </tr>
+</thead>
+<tbody>
+<% @licencias_logs.each do |log| %>
+  <tr>
+    <td><%= log.licencia.clientes_licencia.cliente.razonSocial %></td>
+    <td><%= log.licencia.serial %></td>
+    <td><%= log.log_fecha_hora %></td>
+    <td><%= log.ip %></td>
+    <td><%= log.referencias %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+
+</div>

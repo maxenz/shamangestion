@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cliente:</b>
+  <%= @clientes_licencia.cliente_id %>
+</p>
+
+<p>
+  <b>Licencia:</b>
+  <%= @clientes_licencia.licencia_id %>
+</p>
+
+<p>
+  <b>Cnn data source:</b>
+  <%= @clientes_licencia.cnn_data_source %>
+</p>
+
+<p>
+  <b>Cnn catalog:</b>
+  <%= @clientes_licencia.cnn_catalog %>
+</p>
+
+<p>
+  <b>Cnn user:</b>
+  <%= @clientes_licencia.cnn_user %>
+</p>
+
+<p>
+  <b>Cnn password:</b>
+  <%= @clientes_licencia.cnn_password %>
+</p>
+
+
+<%= link_to 'Edit', edit_clientes_licencia_path(@clientes_licencia) %> |
+<%= link_to 'Back', clientes_licencias_path %>

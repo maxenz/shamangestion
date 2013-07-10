@@ -7,7 +7,8 @@ Shamangestion::Application.routes.draw do
   resources :productos
 
   resources :clientes do
-    resources :clientes_contactos 
+    resources :clientes_contactos
+    resources :clientes_licencias
   end
 
   resources :paises do
@@ -23,6 +24,8 @@ Shamangestion::Application.routes.draw do
   devise_scope :user do
     root to: "devise/sessions#new"
   end
+
+  match 'log' => 'licencias_logs#index'
 
 
 
