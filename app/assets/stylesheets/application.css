@@ -7,6 +7,8 @@
  *= require_tree .
 */
 
+@import "bootstrap";
+@import "bootstrap-responsive";
 
 body {
     padding-bottom: 40px;
