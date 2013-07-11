@@ -57,6 +57,4 @@ tClienteLicencias = $('#cliente_licencias').dataTable({
 
 	$('#cliente_licencias tr:first').css("background-color","#EEEEEE");
 
-
-
 });
