@@ -4,10 +4,11 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require dataTables/jquery.dataTables.bootstrap
- *= require jquery.ui.all
  *= require_tree .
 */
 
+@import "bootstrap";
+@import "bootstrap-responsive";
 
 body {
     padding-bottom: 40px;
