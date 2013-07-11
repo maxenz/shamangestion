@@ -7,8 +7,6 @@
  *= require_tree .
 */
 
-@import "bootstrap";
-@import "bootstrap-responsive";
 
 body {
     padding-bottom: 40px;
@@ -99,8 +97,7 @@ table {
 
 .formPrincipal {
     
-    text-align:center;
-    background:#eeeeee;
+
     padding-top:15px;
     padding-bottom:15px;
 
@@ -156,3 +153,4 @@ h2 {
 
     text-align:center;
 }
+

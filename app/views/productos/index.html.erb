@@ -18,7 +18,7 @@
     <td><%= producto.nro_producto %></td>
     <td><%= producto.descripcion %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_producto_path(producto) %></td>
-    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, producto, :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, producto, :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </tbody>

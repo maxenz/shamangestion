@@ -16,7 +16,7 @@
 <tbody>
 <% @licencias_logs.each do |log| %>
   <tr>
-    <td><%= log.licencia.clientes_licencia.cliente.razonSocial %></td>
+    <td><%= log.licencia.cliente.razonSocial %></td>
     <td><%= log.licencia.serial %></td>
     <td><%= log.log_fecha_hora %></td>
     <td><%= log.ip %></td>

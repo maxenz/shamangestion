@@ -1,7 +1,7 @@
 
-<hr />
-<h3> Licencias </h3>
-
+<hr style="border-bottom:2px solid #0f82f5;">
+<h3 style="text-align:center"> Licencias </h3>
+<hr>
 <table id="cliente_licencias" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered display">
   <thead>
   <tr>
@@ -21,10 +21,11 @@
     <td><%= lic.cnn_user %></td>
     <td><%= lic.cnn_pass %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_cliente_clientes_licencia_path(@cliente,lic) %></td>
-    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, cliente_clientes_licencia_path(@cliente,lic), :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, cliente_clientes_licencia_path(@cliente,lic), :class => 'delete_element', method: :delete, data: { confirm: 'Seguro que desea eliminar el registro?' } %></td>
   </tr>
 <% end %>
 </tbody>
 </table>
-
+<div style="text-align:center;padding-bottom:15px">
 <%= link_to 'Asignar Licencia', new_cliente_clientes_licencia_path(@cliente), :class => 'btn btn-info btnNuevo' %>
+</div>

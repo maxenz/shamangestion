@@ -27,6 +27,7 @@ class ClientesLicenciasController < ApplicationController
 
     @cliente = Cliente.find(params[:cliente_id])
     @clientes_licencia = @cliente.clientes_licencias.new
+    @lic_disponibles = Licencia.all.select {|licencia| licencia.cliente.nil?}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -83,7 +84,7 @@ class ClientesLicenciasController < ApplicationController
     @clientes_licencia.destroy
 
     respond_to do |format|
-      format.html { redirect_to clientes_licencias_url }
+      format.html { redirect_to edit_cliente_path(@clientes_licencia.cliente) }
       format.json { head :no_content }
     end
   end

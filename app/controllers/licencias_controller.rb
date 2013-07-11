@@ -78,8 +78,9 @@ class LicenciasController < ApplicationController
     @licencia = Licencia.find(params[:id])
     @licencia.destroy
 
-    respond_to do |format|
-      format.js { render :nothing => true }
+ respond_to do |format|
+      format.html { redirect_to licencias_url }
+      format.json { head :no_content }
     end
   end
 end

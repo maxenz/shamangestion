@@ -62,14 +62,22 @@ class PaisesController < ApplicationController
 
   # DELETE /paises/1
   # DELETE /paises/1.json
-  def destroy
-    @pais = Pais.find(params[:id])
-    @pais.destroy
 
-    respond_to do |format|
-      format.js   { render :nothing => true}
+  def destroy
+    
+    begin
+      @pais = Pais.find(params[:id])
+      @pais.destroy
+      flash[:success] = "successfully destroyed." 
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @pais.errors.add(:base, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to paises_url
     end
   end
+
+
 
   def get_paises
     @paises = Pais.all

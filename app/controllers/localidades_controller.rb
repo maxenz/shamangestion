@@ -88,11 +88,16 @@ class LocalidadesController < ApplicationController
   # DELETE /localidades/1
   # DELETE /localidades/1.json
   def destroy
-    @localidad = Localidad.find(params[:id])
-    @localidad.destroy
-
-    respond_to do |format|
-      format.js { render :nothing => true }
+    
+    begin
+      @localidad = Localidad.find(params[:id])
+      @localidad.destroy
+      flash[:success] = "successfully destroyed." 
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @localidad.errors.add(:base, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to pais_provincia_localidades_path(@localidad.provincia.pais,@localidad.provincia)
     end
   end
 end

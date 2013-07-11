@@ -5,10 +5,12 @@
          <ul class="nav nav-list">
            <li class="nav-header">SEGURIDAD</li>
            <li class="<%= 'active' if current_page?('/log') %>"><%= link_to "Visor de Logs", '/log' %></li>
+           <li class="divider"></li>
            <li class="nav-header">CLIENTES</li>
            <li class="<%= 'active' if current_page?(clientes_path) %>"><%= link_to "Clientes", clientes_path %></li>
            <li class="<%= 'active' if current_page?(productos_path) %>"><%= link_to "Productos", productos_path %></li>
           <li class="<%= 'active' if current_page?(licencias_path) %>"><%= link_to "Licencias", licencias_path %></li>
+          <li class="divider"></li>
            <li class="nav-header">ABM</li>
            <li class="<%= 'active' if current_page?(paises_path) %>"><%= link_to "Países", paises_path %></li>
   

@@ -23,7 +23,7 @@
     <td><%= localidad.provincia.pais.descripcion %></td>
     <td><%= localidad.provincia.descripcion %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_pais_provincia_localidad_path(@pais,@provincia,localidad) %></td>
-    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, pais_provincia_localidad_path(@pais,@provincia,localidad), :class => 'delete_element', method: :delete, data: { confirm: 'Seguro que desea eliminar el registro?' },:remote => true %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, pais_provincia_localidad_path(@pais,@provincia,localidad), :class => 'delete_element', method: :delete, data: { confirm: 'Seguro que desea eliminar el registro?' } %></td>
   </tr>
 <% end %>
 </tbody>

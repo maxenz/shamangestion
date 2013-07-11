@@ -2,14 +2,15 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.association :licencia,label_method: :serial, value_method: :id, include_blank: false, collection: Licencia.all(order: 'serial'), prompt: "Elige una licencia" %>
+    <%= f.association :licencia,label_method: :serial, value_method: :id, include_blank: false, collection: @lic_disponibles, prompt: "Elige una licencia" %>
     <%= f.input :cnn_data_source, :label => 'Data Source' %>
     <%= f.input :cnn_catalog, :label => 'Catalog' %>
     <%= f.input :cnn_user, :label => 'User' %>
     <%= f.input :cnn_pass, :label => 'Password' %>
+    <%= f.input :fecha_de_vencimiento, :label => 'Fecha de Vencimiento' %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Guardar', :class => 'btn btn-primary' %>
   </div>
 <% end %>

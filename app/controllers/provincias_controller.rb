@@ -65,13 +65,19 @@ class ProvinciasController < ApplicationController
 
   # DELETE /provincias/1
   # DELETE /provincias/1.json
-  def destroy
-    @provincia = Provincia.find(params[:id])
-    @provincia.destroy
-
-    respond_to do |format|
-      format.html { redirect_to provincias_url }
-      format.js   { render :nothing => true   }
+  
+ def destroy
+    
+    begin
+      @provincia = Provincia.find(params[:id])
+      @provincia.destroy
+      flash[:success] = "successfully destroyed." 
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @provincia.errors.add(:base, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to pais_provincias_path(@provincia.pais)
     end
   end
+
 end

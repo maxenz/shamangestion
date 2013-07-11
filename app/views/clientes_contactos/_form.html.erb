@@ -1,4 +1,6 @@
-<%= simple_form_for([@cliente,@clientes_contacto]) do |f| %>
+
+
+<%= simple_form_for([@cliente,@clientes_contacto], :html => {:class => 'formPrincipal'}) do |f| %>
 
   <div class="form-inputs">
     <%= f.input :nombre %>
@@ -8,6 +10,8 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, 'Guardar', :class => 'btn btn-primary' %>
   </div>
 <% end %>
+
+

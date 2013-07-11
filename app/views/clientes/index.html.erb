@@ -27,7 +27,7 @@
     <td><%= cliente.localidad.provincia.pais.descripcion %></td>
     <td><%= cliente.localidad.descripcion %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_cliente_path(cliente) %></td>
-    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, cliente, :class => 'delete_element', method: :delete, data: { confirm: 'Are you sure?' },:remote => true %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, cliente, :class => 'delete_element', method: :delete, data: { confirm: 'Seguro que desea eliminar el registro?' } %></td>
   </tr>
 <% end %>
 </tbody>

@@ -89,9 +89,9 @@ class ClientesContactosController < ApplicationController
     @clientes_contacto = ClientesContacto.find(params[:id])
     @clientes_contacto.destroy
 
-    respond_to do |format|
-      format.html { redirect_to clientes_contactos_url }
-      format.js   { render :nothing => true }
+     respond_to do |format|
+      format.html {redirect_to edit_cliente_path(@clientes_contacto.cliente)}
+      format.json { head :no_content }
     end
   end
 end
