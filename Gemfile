@@ -12,7 +12,6 @@ gem "twitter-bootstrap-rails"
 gem 'twitter-bootstrap-rails-confirm'
 gem 'jquery-rails'
 gem 'will_paginate'
-gem 'jquery-ui-rails'
 gem 'devise'
 gem "bcrypt-ruby", '~> 3.0.0'
 group :production do
