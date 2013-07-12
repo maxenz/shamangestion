@@ -15,7 +15,7 @@ gem 'will_paginate'
 gem 'devise'
 gem "bcrypt-ruby", '~> 3.0.0'
 group :production do
-  gem 'pg' , '~>0.13.2'
+  gem 'mysql2'
 end
 
 
