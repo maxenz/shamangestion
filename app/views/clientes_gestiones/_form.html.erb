@@ -1,0 +1,12 @@
+<%= simple_form_for([@cliente,@clientes_gestion], :html => {:class => 'formPrincipal'}) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.association :estado, label_method: :descripcion, value_method: :id, include_blank: false, collection: Estado.all, prompt: "Elige un estado" %>
+    <%= f.input :fecha, :label => :Fecha %>
+    <%= f.input :observaciones, :label => :Observaciones, input_html: { style: 'width:500px;height:150px'}  %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, 'Guardar', :class => 'btn btn-primary' %>
+  </div>
+<% end %>

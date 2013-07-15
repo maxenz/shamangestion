@@ -1,0 +1,29 @@
+
+<hr style="border-bottom:2px solid #0f82f5;">
+<h3 style="text-align:center"> Gesti&oacute;n </h3>
+<hr>
+<table id="cliente_gestiones" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered display">
+  <thead>
+  <tr>
+    <th>Estado</th>
+    <th>Fecha</th>
+    <th>Observaciones</th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @cliente_gestiones.each do |gestion| %>
+  <tr>
+    <td><%= gestion.estado.descripcion %></td>
+    <td><%= gestion.fecha %></td>
+    <td><%= gestion.observaciones %></td>
+    <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_cliente_clientes_gestion_path(@cliente,gestion) %></td>
+    <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, cliente_clientes_gestion_path(@cliente,gestion), :class => 'delete_element', method: :delete, data: { confirm: 'Seguro que desea eliminar el registro?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<div style="text-align:center;padding-bottom:15px">
+<%= link_to 'Agregar Gestión', new_cliente_clientes_gestion_path(@cliente), :class => 'btn btn-info btnNuevo' %>
+</div>

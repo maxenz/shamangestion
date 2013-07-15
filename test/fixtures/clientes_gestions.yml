@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  cliente_id: 1
+  estado_id: 1
+  fecha: 2013-07-15
+  observaciones: MyText
+
+two:
+  cliente_id: 1
+  estado_id: 1
+  fecha: 2013-07-15
+  observaciones: MyText

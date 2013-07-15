@@ -72,15 +72,17 @@ class LicenciasController < ApplicationController
     end
   end
 
-  # DELETE /licencias/1
-  # DELETE /licencias/1.json
-  def destroy
-    @licencia = Licencia.find(params[:id])
-    @licencia.destroy
-
- respond_to do |format|
-      format.html { redirect_to licencias_url }
-      format.json { head :no_content }
+ def destroy
+    
+    begin
+      @licencia = Licencia.find(params[:id])
+      @licencia.destroy
+    rescue ActiveRecord::DeleteRestrictionError => e
+      @licencia.errors.add(:base, e)
+      flash[:error] = "#{e}"
+    ensure
+      redirect_to licencias_url
     end
   end
+
 end

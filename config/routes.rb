@@ -1,5 +1,20 @@
 Shamangestion::Application.routes.draw do
 
+  get "clientes_gestiones/new"
+
+  get "clientes_gestiones/destroy"
+
+  get "clientes_gestiones/index"
+
+  get "clientes_gestiones/update"
+
+  get "clientes_gestiones/edit"
+
+  get "clientes_gestiones/create"
+
+  resources :estados
+
+
   devise_for :users
 
   resources :licencias
@@ -9,6 +24,7 @@ Shamangestion::Application.routes.draw do
   resources :clientes do
     resources :clientes_contactos
     resources :clientes_licencias
+    resources :clientes_gestiones
   end
 
   resources :paises do

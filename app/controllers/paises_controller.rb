@@ -68,7 +68,6 @@ class PaisesController < ApplicationController
     begin
       @pais = Pais.find(params[:id])
       @pais.destroy
-      flash[:success] = "successfully destroyed." 
     rescue ActiveRecord::DeleteRestrictionError => e
       @pais.errors.add(:base, e)
       flash[:error] = "#{e}"

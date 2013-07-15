@@ -71,7 +71,6 @@ class ProvinciasController < ApplicationController
     begin
       @provincia = Provincia.find(params[:id])
       @provincia.destroy
-      flash[:success] = "successfully destroyed." 
     rescue ActiveRecord::DeleteRestrictionError => e
       @provincia.errors.add(:base, e)
       flash[:error] = "#{e}"

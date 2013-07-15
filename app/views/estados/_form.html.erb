@@ -1,0 +1,14 @@
+
+<div class="contenedorPrincipal">
+
+<%= simple_form_for(@estado, :html => {:class => 'formPrincipal'}) do |f| %>
+    <h3>Formulario de Registro de Estados</h3>
+      <hr />
+
+  <%= f.input :nro_estado, label: 'Nro. de Estado' %>
+  <%= f.input :descripcion,label: 'Estado' %>
+  <%= f.button :submit, 'Guardar', :class => 'btn btn-success' %>
+
+<% end %>
+
+</div>

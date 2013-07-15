@@ -37,8 +37,10 @@ class ClientesLicenciasController < ApplicationController
 
   # GET /clientes_licencias/1/edit
   def edit
+
     @cliente = Cliente.find(params[:cliente_id])
     @clientes_licencia = @cliente.clientes_licencias.find(params[:id])
+    @lic_disponibles = Licencia.all.select {|licencia| licencia.cliente.nil?}
   end
 
   # POST /clientes_licencias

@@ -92,7 +92,6 @@ class LocalidadesController < ApplicationController
     begin
       @localidad = Localidad.find(params[:id])
       @localidad.destroy
-      flash[:success] = "successfully destroyed." 
     rescue ActiveRecord::DeleteRestrictionError => e
       @localidad.errors.add(:base, e)
       flash[:error] = "#{e}"

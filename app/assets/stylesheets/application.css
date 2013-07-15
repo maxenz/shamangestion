@@ -126,17 +126,6 @@ table {
     text-align:center;
 }
 
-.boolean{
-    float: left;
-    padding-bottom:8px;
-
-}
-
-.boolean.optional.control-label {
-
-    margin-right:30px;
-}
-
 .formCentrado {
 
     width:400px;
