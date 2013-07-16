@@ -9,6 +9,6 @@ class Estado < ActiveRecord::Base
 
   validates_presence_of :descripcion
   validates_uniqueness_of :descripcion
-  validates_format_of :descripcion, :with => /^[-a-z]+$/, :message => 'Solo debe contener letras.'
+
   
 end
