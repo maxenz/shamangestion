@@ -38,7 +38,13 @@
           </div><!--/row-->
 
 
-        <%= f.simple_fields_for :clientes_contactos do |p| %>
+          <% if current_page?('/clientes/new') 
+            @datos = :clientes_contactos
+         else
+            @datos = :contacto_principal
+         end
+          %>
+          <%= f.simple_fields_for @datos do |p| %>
         <div class="row-fluid">
           <div class="span4">
            <%= p.input :nombre , input_html: {class: 'span12'}  %>

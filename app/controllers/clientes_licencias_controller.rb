@@ -40,7 +40,7 @@ class ClientesLicenciasController < ApplicationController
 
     @cliente = Cliente.find(params[:cliente_id])
     @clientes_licencia = @cliente.clientes_licencias.find(params[:id])
-    @lic_disponibles = Licencia.all.select {|licencia| licencia.cliente.nil?}
+    @lic_disponibles = Licencia.all.select {|licencia| licencia.cliente.nil? | licencia = @clientes_licencia}
   end
 
   # POST /clientes_licencias

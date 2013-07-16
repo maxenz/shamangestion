@@ -5,7 +5,7 @@
   <div class="form-inputs">
     <%= f.input :nombre, :label => 'Nombre' %>
     <%= f.input :email %>
- 	<%= f.input :flgPrincipal, :as => :boolean,:label => false, :inline_label => true %>
+	<%= f.input :flgPrincipal,:label => 'Contacto Principal?', :collection => [['Si', 1], ['No', 0]], :include_blank => false %>
     <%= f.input :telefono, :label => 'Teléfono' %>
   </div>
 

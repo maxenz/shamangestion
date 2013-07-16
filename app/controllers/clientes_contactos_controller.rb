@@ -51,11 +51,24 @@ class ClientesContactosController < ApplicationController
   # POST /clientes_contactos.json
   def create
 
+
+    paramsContacto = params[:clientes_contacto]
     @cliente = Cliente.find(params[:cliente_id])
-    @clientes_contacto = @cliente.clientes_contactos.new(params[:clientes_contacto])
+    @clientes_contacto = @cliente.clientes_contactos.new(paramsContacto)
+    @contactos = @cliente.clientes_contactos
 
     respond_to do |format|
+
       if @clientes_contacto.save
+        if params['flgPrincipal'] = 1
+          @contactos.each do |cont|
+            if cont != @clientes_contacto
+              cont.flgPrincipal = 0
+              cont.save
+            end
+          end
+        end
+
         format.html { redirect_to edit_cliente_path(@cliente) }
         format.json { render json: @clientes_contacto, status: :created, location: @clientes_contacto }
       else
@@ -71,9 +84,18 @@ class ClientesContactosController < ApplicationController
 
     @cliente = Cliente.find(params[:cliente_id])
     @clientes_contacto = @cliente.clientes_contactos.find(params[:id])
+    @contactos = @cliente.clientes_contactos
 
     respond_to do |format|
       if @clientes_contacto.update_attributes(params[:clientes_contacto])
+        if params['flgPrincipal'] = 1
+          @contactos.each do |cont|
+            if cont != @clientes_contacto
+              cont.flgPrincipal = 0
+              cont.save
+            end
+          end
+        end
         format.html { redirect_to edit_cliente_path(@cliente) }
         format.json { head :no_content }
       else
