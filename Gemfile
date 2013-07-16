@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'will_paginate'
 gem 'devise'
 gem "bcrypt-ruby", '~> 3.0.0'
+
 group :production do
   gem 'mysql2'
   gem 'execjs'
@@ -29,8 +30,6 @@ group :assets do
   gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
   gem 'uglifier', '>= 1.0.3'
 end
-
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
