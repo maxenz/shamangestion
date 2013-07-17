@@ -6409,7 +6409,8 @@ div.subnav-fixed {
 }
 
 .nav-list .nav-header {
-  color: #080808;
+  color: #0072e6;
+  font-size:13px;
 }
 
 .nav-list .divider {
@@ -6823,4 +6824,8 @@ a.thumbnail:hover {
 
 .affix {
   position: fixed;
+}
+ul.nav li a {
+    text-indent:-20px;
+    padding-left:35px;
 }

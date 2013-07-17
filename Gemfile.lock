@@ -135,7 +135,6 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   country_select
   devise
-  execjs
   jquery-datatables-rails!
   jquery-rails
   mysql2
