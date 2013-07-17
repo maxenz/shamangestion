@@ -5,10 +5,14 @@
 #   gem 'sqlite3'
 
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  database: gestion_development
+  username: maxenz
+  password: elmaxo
+  host: 127.0.0.1
+  port: 3306
+
 
 production:
   adapter: mysql2

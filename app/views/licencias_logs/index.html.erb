@@ -18,7 +18,7 @@
   <tr>
     <td><%= log.licencia.cliente.razonSocial %></td>
     <td><%= log.licencia.serial %></td>
-    <td><%= log.log_fecha_hora %></td>
+    <td><%= log.created_at.to_formatted_s(:db) %></td>
     <td><%= log.ip %></td>
     <td><%= log.referencias %></td>
   </tr>
