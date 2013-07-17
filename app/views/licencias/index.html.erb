@@ -2,11 +2,13 @@
 
   <h2>Licencias</h2>
   <hr />
-<div style="width:500px;margin-left:auto;margin-right:auto">
+<div style="width:700px;margin-left:auto;margin-right:auto">
 <table id="licencias" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered display">
   <thead>
   <tr>
     <th>Serial</th>
+    <th>Estado</th>
+    <th>Productos</th>
     <th></th>
     <th></th>
   </tr>
@@ -15,6 +17,8 @@
 <% @licencias.each do |licencia| %>
   <tr>
     <td><%= licencia.serial %></td>
+    <td><%= (get_estado_licencia licencia).html_safe %></td>
+    <td><%= get_productos_licencia licencia %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_licencia_path(licencia) %></td>
     <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, licencia, :class => 'delete_element', method: :delete, data: { confirm: 'Desea eliminar la licencia?'} %></td>
   </tr>
@@ -28,17 +32,5 @@
 
 </div>
 
-<div class="modal hide fade" id="modLicencia">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3>Creaci&oacute;n / Actualizaci&oacute;n de Licencias</h3>
-  </div>
-  <div class="modal-body">
-    <div id="modContLicencia">
-
-    </div>
-    
-  </div>
-</div>
 
 

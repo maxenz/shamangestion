@@ -87,15 +87,17 @@ class ClientesContactosController < ApplicationController
     @contactos = @cliente.clientes_contactos
     if tiene_un_solo_contacto @cliente
       respond_to do |format|
-
-        format.html { redirect_to edit_cliente_path(@cliente), notice: 'El cliente debe tener al menos un contacto principal' }
+        @clientes_contacto.update_attributes(params[:clientes_contacto])
+        @clientes_contacto.flgPrincipal = 1
+        @clientes_contacto.save
+        format.html { redirect_to edit_cliente_path(@cliente) }
 
       end
 
     else
       respond_to do |format|
       if @clientes_contacto.update_attributes(params[:clientes_contacto])
-        if params['flgPrincipal'] = 1
+        if params['flgPrincipal'] == 1
           @contactos.each do |cont|
             if cont != @clientes_contacto
               cont.flgPrincipal = 0

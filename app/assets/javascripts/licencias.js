@@ -9,7 +9,7 @@ $(document).ready(function() {
 	    "iDisplayLength": 8,
 	    "aLengthMenu": [[8, 10, 15, -1], [8, 10, 15, "All"]],
 	    "aoColumnDefs": [
-	      { "sWidth": "5%", "aTargets": [ 1,2 ] }
+	      { "sWidth": "5%", "aTargets": [ 3,4 ] }
 	    ],
 	    "bSortClasses": false,
 	  	"oLanguage": {

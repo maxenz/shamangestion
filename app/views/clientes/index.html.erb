@@ -23,8 +23,8 @@
     <td><%= cliente.razonSocial %></td>
     <td><%= cliente.email %></td>
     <td><%= cliente.telefono %></td>
-    <td><%= cliente.localidad.provincia.descripcion %></td>
     <td><%= cliente.localidad.provincia.pais.descripcion %></td>
+    <td><%= cliente.localidad.provincia.descripcion %></td>
     <td><%= cliente.localidad.descripcion %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_cliente_path(cliente) %></td>
     <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, cliente, :class => 'delete_element', method: :delete, data: { confirm: 'Seguro que desea eliminar el registro?' } %></td>
