@@ -14,13 +14,9 @@ gem 'jquery-rails'
 gem 'will_paginate'
 gem 'devise'
 gem "bcrypt-ruby", '~> 3.0.0'
-gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
+gem 'mysql2'
 
-group :production do
-  gem 'mysql2'
-
-end
 
 
 # Gems used only for assets and not required
