@@ -85,8 +85,15 @@ class ClientesContactosController < ApplicationController
     @cliente = Cliente.find(params[:cliente_id])
     @clientes_contacto = @cliente.clientes_contactos.find(params[:id])
     @contactos = @cliente.clientes_contactos
+    if tiene_un_solo_contacto @cliente
+      respond_to do |format|
 
-    respond_to do |format|
+        format.html { redirect_to edit_cliente_path(@cliente), notice: 'El cliente debe tener al menos un contacto principal' }
+
+      end
+
+    else
+      respond_to do |format|
       if @clientes_contacto.update_attributes(params[:clientes_contacto])
         if params['flgPrincipal'] = 1
           @contactos.each do |cont|
@@ -103,17 +110,46 @@ class ClientesContactosController < ApplicationController
         format.json { render json: @clientes_contacto.errors, status: :unprocessable_entity }
       end
     end
+    end
+    
   end
 
   # DELETE /clientes_contactos/1
   # DELETE /clientes_contactos/1.json
   def destroy
-    @clientes_contacto = ClientesContacto.find(params[:id])
-    @clientes_contacto.destroy
 
-     respond_to do |format|
-      format.html {redirect_to edit_cliente_path(@clientes_contacto.cliente)}
-      format.json { head :no_content }
+    @cliente = Cliente.find(params[:cliente_id])
+    @contactos = @cliente.clientes_contactos
+    @clientes_contacto = ClientesContacto.find(params[:id])
+
+    if tiene_un_solo_contacto @cliente
+      respond_to do |format|
+        format.html {redirect_to edit_cliente_path(@clientes_contacto.cliente), notice: 'El cliente debe tener al menos un contacto principal.'}
+      end
+    else
+      if params["flgPrincipal"] = 1
+        @nuevo_cont_principal = @contactos.where("id <> ?",params[:id]).first
+        @nuevo_cont_principal.flgPrincipal = 1
+        @nuevo_cont_principal.save
+      end
+      @clientes_contacto.destroy
+      respond_to do |format|
+        format.html {redirect_to edit_cliente_path(@clientes_contacto.cliente) }
+        format.json { head :no_content }
+      end
     end
+
+  end
+
+  def tiene_un_solo_contacto(cliente)
+
+    contactos = cliente.clientes_contactos
+    cant_contactos = contactos.size
+    if cant_contactos == 1
+      return true
+    else
+      return false
+    end
+
   end
 end
