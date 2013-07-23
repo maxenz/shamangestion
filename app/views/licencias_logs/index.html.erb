@@ -16,7 +16,7 @@
 <tbody>
 <% @licencias_logs.each do |log| %>
   <tr>
-    <td><%= log.licencia.cliente.razonSocial %></td>
+    <td><%= get_cliente_if_exists log %></td>
     <td><%= log.licencia.serial %></td>
     <td><%= log.created_at.to_formatted_s(:db) %></td>
     <td><%= log.ip %></td>
