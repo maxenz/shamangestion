@@ -10,8 +10,6 @@ class Cliente < ActiveRecord::Base
 	validates_presence_of :razonSocial
 	validates_uniqueness_of :razonSocial
 
-	validates_presence_of :dmCalle
-
 	validates_numericality_of :dmAltura, :allow_nil => true
 
 	validates_numericality_of :dmPiso, :allow_nil => true

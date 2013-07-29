@@ -1,14 +1,16 @@
 class LicenciasLogsController < ApplicationController
 
-before_filter :authenticate_user!
+	before_filter :authenticate_user!
 
-def index
-    @licencias_logs = LicenciasLog.order("created_at DESC").all
+	def index
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @licencias_logs }
-    end
-  end
+	    @licencias_logs = LicenciasLog.find(:all, :order => "created_at DESC")
+
+	    respond_to do |format|
+	      format.html
+	      format.json { render json: @licencias_logs }
+	    end
+
+	end
 
 end
