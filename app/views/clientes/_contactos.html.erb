@@ -14,7 +14,7 @@
 <tbody>
 <% @cliente_contactos.each do |cont| %>
   <tr>
-    <td><%= cont.nombre %></td>
+    <td><%= set_contacto_principal_star(cont).html_safe %></td>
     <td><%= cont.email %></td>
     <td><%= cont.telefono %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, [:edit, @cliente, cont] %></td>

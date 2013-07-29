@@ -5,7 +5,6 @@ class Cliente < ActiveRecord::Base
 	has_many :clientes_licencias, :dependent => :destroy
 	has_many :clientes_gestiones, :dependent => :destroy
 	has_many :licencias, :through => :clientes_licencias
-	#has_one  :contacto_principal, :class_name => 'ClientesContacto', :conditions => "flgPrincipal = 1 "
 
 	validates_presence_of :razonSocial
 	validates_uniqueness_of :razonSocial
@@ -15,6 +14,8 @@ class Cliente < ActiveRecord::Base
 	validates_numericality_of :dmPiso, :allow_nil => true
 
 	validates_presence_of :localidad_id
+
+	validates_presence_of :clientes_contactos
 
     accepts_nested_attributes_for :clientes_licencias, :clientes_gestiones
     accepts_nested_attributes_for :clientes_contactos

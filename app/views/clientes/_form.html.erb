@@ -37,9 +37,26 @@
             
           </div><!--/row-->
 
+          <% if not(@cliente.razonSocial.nil?) %>
 
+        <div class="row-fluid control-group">
+        <label class="control-label">
+            Name<span class="required">*</span></label>
+        <div class="controls">
+            <div class="span6">
+                <input class="span12 required" id="ContactBlock_FirstName" name="ContactBlock.FirstName"
+                    placeholder="First Name" type="text" value="" />
+            </div>
+            <div class="span6">
+                <input class="span12 required" id="ContactBlock_LastName" name="ContactBlock.LastName"
+                    placeholder="Last Name" type="text" value="" />
+            </div>
+        </div>
+    </div>
 
-          <%= f.simple_fields_for :clientes_contactos do |p| %>
+        <% else %>
+
+  <%= f.simple_fields_for :clientes_contactos do |p| %>
         <div class="row-fluid">
           <div class="span4">
            <%= p.input :nombre , input_html: {class: 'span12'}  %>
@@ -53,6 +70,9 @@
         </div><!--/row-->
 
          <%= p.input :flgPrincipal, :as => :hidden, :input_html => { :value => 1 } %>
+        <% end %>
+
+
         <% end %>
 
      <div class="row-fluid">
