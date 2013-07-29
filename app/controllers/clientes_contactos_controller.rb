@@ -51,26 +51,17 @@ class ClientesContactosController < ApplicationController
   # POST /clientes_contactos.json
   def create
 
-
     paramsContacto = params[:clientes_contacto]
     @cliente = Cliente.find(params[:cliente_id])
-    @clientes_contacto = @cliente.clientes_contactos.new(paramsContacto)
-    @contactos = @cliente.clientes_contactos
-
+    clientes_contacto = @cliente.clientes_contactos.new(paramsContacto)
+    contactos = @cliente.clientes_contactos
     respond_to do |format|
-
-      if @clientes_contacto.save
-        if params['flgPrincipal'] = 1
-          @contactos.each do |cont|
-            if cont != @clientes_contacto
-              cont.flgPrincipal = 0
-              cont.save
-            end
-          end
+      if clientes_contacto.save
+        if params[:clientes_contacto][:flgPrincipal] == "1"
+          set_flg_principal_0 contactos, clientes_contacto
         end
 
         format.html { redirect_to edit_cliente_path(@cliente) }
-        format.json { render json: @clientes_contacto, status: :created, location: @clientes_contacto }
       else
         format.html { render action: "new" }
         format.json { render json: @clientes_contacto.errors, status: :unprocessable_entity }
@@ -80,41 +71,39 @@ class ClientesContactosController < ApplicationController
 
   # PUT /clientes_contactos/1
   # PUT /clientes_contactos/1.json
+
   def update
-
-    @cliente = Cliente.find(params[:cliente_id])
-    @clientes_contacto = @cliente.clientes_contactos.find(params[:id])
-    @contactos = @cliente.clientes_contactos
-    if tiene_un_solo_contacto @cliente
+    cliente = Cliente.find(params[:cliente_id])
+    clientes_contacto = cliente.clientes_contactos.find(params[:id])
+    contactos = cliente.clientes_contactos
+    if tiene_un_solo_contacto cliente
+      clientes_contacto.update_attributes(params[:clientes_contacto])
+      clientes_contacto.flgPrincipal = 1
+      clientes_contacto.save
       respond_to do |format|
-        @clientes_contacto.update_attributes(params[:clientes_contacto])
-        @clientes_contacto.flgPrincipal = 1
-        @clientes_contacto.save
-        format.html { redirect_to edit_cliente_path(@cliente) }
-
+        format.html { redirect_to edit_cliente_path(cliente)}
       end
-
+      
+    elsif params[:clientes_contacto][:flgPrincipal] == "1"
+      set_flg_principal_0 contactos, clientes_contacto
+      clientes_contacto.update_attributes(params[:clientes_contacto])
+      respond_to do |format|
+        format.html { redirect_to edit_cliente_path(cliente)}
+      end
+    elsif tiene_contacto_principal contactos, clientes_contacto
+      clientes_contacto.update_attributes(params[:clientes_contacto])
+      respond_to do |format|
+        format.html { redirect_to edit_cliente_path(cliente)}
+      end
     else
       respond_to do |format|
-      if @clientes_contacto.update_attributes(params[:clientes_contacto])
-        if params['flgPrincipal'] == 1
-          @contactos.each do |cont|
-            if cont != @clientes_contacto
-              cont.flgPrincipal = 0
-              cont.save
-            end
-          end
-        end
-        format.html { redirect_to edit_cliente_path(@cliente) }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @clientes_contacto.errors, status: :unprocessable_entity }
+        format.html {redirect_to edit_cliente_path(clientes_contacto.cliente),  notice: 'El cliente debe tener al menos un contacto principal.'}
       end
     end
-    end
-    
+
   end
+
+
 
   # DELETE /clientes_contactos/1
   # DELETE /clientes_contactos/1.json
@@ -126,7 +115,7 @@ class ClientesContactosController < ApplicationController
 
     if tiene_un_solo_contacto @cliente
       respond_to do |format|
-        format.html {redirect_to edit_cliente_path(@clientes_contacto.cliente), notice: 'El cliente debe tener al menos un contacto principal.'}
+        format.html {redirect_to edit_cliente_path(@clientes_contacto.cliente), notice: 'El cliente debe tener al menos un contacto.'}
       end
     else
       if params["flgPrincipal"] = 1
@@ -143,7 +132,7 @@ class ClientesContactosController < ApplicationController
 
   end
 
-  def tiene_un_solo_contacto(cliente)
+  def tiene_un_solo_contacto cliente
 
     contactos = cliente.clientes_contactos
     cant_contactos = contactos.size
@@ -154,4 +143,26 @@ class ClientesContactosController < ApplicationController
     end
 
   end
+
+  def set_flg_principal_0 contactos, contacto_creado
+
+    contactos.each do |cont|
+      if cont != contacto_creado
+        cont.flgPrincipal = 0
+        cont.save
+      end
+    end
+  end
+
+  def tiene_contacto_principal contactos, contacto
+    vBool = false
+    contactos.each do |cont|
+      if ((cont.flgPrincipal == 1) and (cont !=contacto))
+        vBool = true
+      end 
+    end
+
+    return vBool
+  end
+
 end

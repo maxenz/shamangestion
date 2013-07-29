@@ -16,6 +16,7 @@ gem 'devise'
 gem "bcrypt-ruby", '~> 3.0.0'
 gem 'therubyracer', :platforms => :ruby
 gem 'mysql2'
+gem 'debugger'
 
 
 

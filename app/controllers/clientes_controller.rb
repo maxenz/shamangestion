@@ -14,6 +14,7 @@ class ClientesController < ApplicationController
   # GET /clientes/new
   # GET /clientes/new.json
   def new
+    
     @cliente = Cliente.new
     @cliente.clientes_contactos.build
 
@@ -50,14 +51,17 @@ class ClientesController < ApplicationController
   # PUT /clientes/1
   # PUT /clientes/1.json
   def update
-    @cliente = Cliente.find(params[:id])
+    cliente = Cliente.find(params[:id])
 
     respond_to do |format|
-      if @cliente.update_attributes(params[:cliente])
+      if cliente.update_attributes(params[:cliente])
         format.html { redirect_to clientes_url }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+      e = 'Error en el cliente y/o su contacto principal.'
+      cliente.errors.add(:base, e)
+      flash[:error] = "#{e}"
+        format.html { redirect_to action: :edit }
         format.json { render json: @cliente.errors, status: :unprocessable_entity }
       end
     end
