@@ -171,7 +171,7 @@ $(document).ready(function() {
 
 		if (vGestiones.length > 0) {
 
-			var fechaUltGestion = new Date();
+			var fechaUltGestion;
 			var estadoUltGestion = "";
 
 			for (var i = 0; i < vGestiones.length; i++) {
@@ -179,11 +179,14 @@ $(document).ready(function() {
 				var fechaEntera = vGestiones[i].created_at;
 				var anio = fechaEntera.substr(0,4);
 				var mes = fechaEntera.substr(5,2);
+				mes = parseInt(mes);
+				mes = mes - 1;
+				mes = mes.toString();
 				var dia = fechaEntera.substr(8,2);
 				var hora = fechaEntera.substr(11,2);
 				var minutos = fechaEntera.substr(14,2);
 				var segundos = fechaEntera.substr(17,2);
-				var jsDate = new Date(anio, mes, dia, hora, minutos, segundos);
+				var jsDate = new Date(anio,mes,dia,hora,minutos,segundos);
 
 				if ((i == 0) || (jsDate > fechaUltGestion)) {
 
@@ -191,6 +194,7 @@ $(document).ready(function() {
 					estadoUltGestion = vGestiones[i].estado.descripcion;
 				}
 			}
+
 		if (pFiltro == 0) return getFormattedDate(fechaUltGestion);
 		if (pFiltro == 1) return estadoUltGestion;
 
@@ -205,7 +209,6 @@ $(document).ready(function() {
 
 	function getFormattedDate(date) {
 
-		var date = new Date();
 		var d  = date.getDate();
 		var day = (d < 10) ? '0' + d : d;
 		var m = date.getMonth() + 1;
