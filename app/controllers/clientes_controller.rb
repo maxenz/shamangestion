@@ -78,4 +78,61 @@ class ClientesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+def get_clientes_todos
+
+  clientes = Cliente.all(:joins => :clientes_contactos,:select => 'clientes.*,clientes_contactos.telefono, clientes_contactos.email',:conditions => 'clientes_contactos.flgPrincipal = 1')
+  return clientes
+
 end
+
+def get_clientes_vendidos
+
+  clientes = Cliente.all(:joins => :clientes_contactos,:select => 'clientes.*,clientes_contactos.telefono, clientes_contactos.email',:conditions => 'clientes.id IN (SELECT cliente_id FROM clientes_licencias) AND clientes_contactos.flgPrincipal = 1')
+  return clientes
+
+end
+
+def get_clientes_en_gestion
+
+  clientes = Cliente.all(:joins => :clientes_contactos,:select => 'clientes.*,clientes_contactos.telefono,clientes_contactos.email',:conditions => 'clientes.id NOT IN (SELECT cliente_id FROM clientes_licencias) AND clientes_contactos.flgPrincipal = 1')  
+  return clientes
+
+end
+
+def update_clientes
+
+  pId = params[:pId].to_i
+
+  case pId
+  when 1
+    clientes = get_clientes_vendidos
+  when 2
+    clientes = get_clientes_en_gestion
+  else
+    clientes = get_clientes_todos
+  end
+
+  @clientes = clientes.to_json(
+    :include => {
+      :clientes_gestiones => {
+        :include => :estado
+        },
+      :localidad => {
+        :include => { 
+          :provincia => {
+            :include => :pais
+          },
+        },
+      },
+    }
+  )
+
+  respond_to do |format|
+    format.html  # index.html.erb 
+    format.json { render :content_type => 'application/json',:text => '{"aaData": ' + @clientes + '}' }       
+  end
+end
+
+end
+

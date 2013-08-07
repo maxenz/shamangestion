@@ -14,7 +14,6 @@ Shamangestion::Application.routes.draw do
 
   resources :estados
 
-
   devise_for :users
 
   resources :licencias
@@ -42,6 +41,10 @@ Shamangestion::Application.routes.draw do
   end
 
   match 'log' => 'licencias_logs#index'
+
+  match 'update_clientes' => 'clientes#update_clientes'
+
+  match 'update_clientes2' => 'clientes#update_clientes2'
 
 
 
