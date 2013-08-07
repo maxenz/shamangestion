@@ -18,6 +18,7 @@ $(document).ready(function() {
 	        { "mDataProp": "dmPiso",	//puse dmAltura porque si no pones ninguno se buguea la tabla
                 "bSearchable": false,
                 "bSortable": false,
+                "bVisible" : false,
                 "fnRender": function (oObj) {
                     return getGestion(oObj.aData.clientes_gestiones,1) ;
                 }
@@ -25,6 +26,7 @@ $(document).ready(function() {
 	        { "mDataProp": "localidad_id",	//puse localidad_id porque si no pones ninguno se buguea la tabla
                 "bSearchable": false,
                 "bSortable": false,
+                "bVisible" : false,
                 "fnRender": function (oObj) {
                     return getGestion(oObj.aData.clientes_gestiones,0) ;
                 }
@@ -107,7 +109,6 @@ $(document).ready(function() {
 	    }
 	});
 
-	ocultarColumnasGestion();
 
 
 	$('#cliente_licencias tr:first').css("background-color","#EEEEEE");
@@ -136,14 +137,6 @@ $(document).ready(function() {
 
 	});
 
-	function ocultarColumnasGestion() {
-
-		var tClientes = $('#clientes').dataTable();
-
-		tClientes.fnSetColumnVis( 6, false );
-		tClientes.fnSetColumnVis( 7, false );		
-
-	}
 
 	function refresh(filtro_id) {
 		var url = "update_clientes";
@@ -203,8 +196,6 @@ $(document).ready(function() {
 			return "SIN GESTION";
 
 		}
-
-	
 	}
 
 	function getFormattedDate(date) {
