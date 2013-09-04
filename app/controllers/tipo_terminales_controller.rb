@@ -44,7 +44,7 @@ class TipoTerminalesController < ApplicationController
 
     respond_to do |format|
       if @tipo_terminal.save
-        format.html { redirect_to estados_url }
+        format.html { redirect_to tipo_terminales_url }
         format.json { render json: @tipo_terminal, status: :created, location: @tipo_terminal }
       else
         format.html { render action: "new" }
