@@ -1,0 +1,13 @@
+
+<div class="contenedorPrincipal">
+
+<%= simple_form_for(@tipo_terminal, :html => {:class => 'formPrincipal'}) do |f| %>
+    <h3>Formulario de Registro de Tipo de Terminales</h3>
+      <hr />
+
+  <%= f.input :descripcion, label: 'Tipo de terminal' %>
+  <%= f.button :submit, 'Guardar', :class => 'btn btn-success' %>
+
+<% end %>
+
+</div>

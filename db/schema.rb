@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130715152934) do
+ActiveRecord::Schema.define(:version => 20130904142415) do
 
   create_table "clientes", :force => true do |t|
     t.string   "razonSocial"
@@ -57,6 +57,18 @@ ActiveRecord::Schema.define(:version => 20130715152934) do
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.date     "fecha_de_vencimiento"
+  end
+
+  create_table "clientes_terminales", :force => true do |t|
+    t.integer  "tipo_terminal_id"
+    t.integer  "cliente_id"
+    t.string   "valor1"
+    t.string   "valor2"
+    t.string   "valor3"
+    t.string   "valor4"
+    t.string   "referencia"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "estados", :force => true do |t|
@@ -113,6 +125,12 @@ ActiveRecord::Schema.define(:version => 20130715152934) do
     t.string   "codigo"
     t.string   "descripcion"
     t.integer  "pais_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "tipo_terminales", :force => true do |t|
+    t.string   "descripcion"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

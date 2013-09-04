@@ -1,0 +1,14 @@
+<%= simple_form_for([@cliente,@clientes_terminal], :html => {:class => 'formPrincipal'}) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.association :tipo_terminal, label_method: :descripcion, value_method: :id, include_blank: false, collection: TipoTerminal.all, prompt: "Elige una terminal" %>
+    <%= f.input :valor1, :label => "Valor 1" %>
+    <%= f.input :valor2, :label => "Valor 2" %>
+    <%= f.input :valor3, :label => "Valor 3" %>
+    <%= f.input :valor4, :label => "Valor 4" %> 
+    <%= f.input :referencia, :label => "Referencia" %>           
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit, 'Guardar', :class => 'btn btn-primary' %>
+  </div>
+<% end %>

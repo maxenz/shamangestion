@@ -6,5 +6,6 @@ class ClientesGestion < ActiveRecord::Base
 	validates_presence_of :estado
 	validates_presence_of :fecha
 
-  attr_accessible :cliente_id, :estado_id, :fecha, :observaciones, :estado_attributes
+  	attr_accessible :cliente_id, :estado_id, :fecha, :observaciones, :estado_attributes
+
 end

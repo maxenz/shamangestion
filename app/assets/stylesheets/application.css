@@ -7,7 +7,6 @@
  *= require_tree .
 */
 
-
 body {
     padding-bottom: 40px;
     padding-top: 60px;
@@ -20,7 +19,7 @@ body {
 .sidebar-nav-fixed {
     position:fixed;
     top:60px;
-    width:18%;
+    width:12%;
 }
 
 @media (max-width: 767px) {
@@ -141,6 +140,23 @@ table {
 h2 {
 
     text-align:center;
+}
+
+.table td {
+  overflow: hidden; /* this is what fixes the expansion */
+  text-overflow: ellipsis; /* not supported in all browsers, but I accepted the tradeoff */
+  white-space: nowrap;
+}
+
+#btnNuevoCliente {
+
+    text-align: center;
+    margin-top: 10px;
+}
+
+#clientes {
+
+    font-size:12px;
 }
 
 

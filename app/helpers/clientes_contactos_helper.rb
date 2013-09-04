@@ -8,6 +8,11 @@ module ClientesContactosHelper
 		end
 	end
 
-
-
+	def set_star_tabla contacto
+		if contacto.flgPrincipal == 1
+			return "<i class=\"icon icon-star\"></i>"
+		else
+			return " "
+		end
+	end		
 end

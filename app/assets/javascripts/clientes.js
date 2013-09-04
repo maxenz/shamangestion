@@ -4,10 +4,15 @@ $(document).ready(function() {
 	"fnDrawCallback": function(){
 	hoverBackgroundTable();
 	},
-		"sDom": "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
 	  	"sPaginationType": "bootstrap",
 	    "iDisplayLength": 30,
 	    "aLengthMenu": [[15, 30, 45, -1], [15, 30, 45, "All"]],
+	    "bAutoWidth": false,
+    	"aoColumnDefs": [
+        	{ "sWidth": "25%", "aTargets": [ 0,1 ] },
+        	{ "sWidth": "12%", "aTargets": [ 2,3,4,5 ] },
+        	{ "sWidth": "2%", "aTargets": [ 6,7 ] },
+      	],
 	    "aoColumns": [
 	        { "mDataProp": "razonSocial" },
 	        { "mDataProp": "email" },
@@ -16,16 +21,12 @@ $(document).ready(function() {
 	       	{ "mDataProp" : "localidad.provincia.descripcion"},
 	        { "mDataProp" : "localidad.descripcion"},
 	        { "mDataProp": "dmPiso",	//puse dmAltura porque si no pones ninguno se buguea la tabla
-                "bSearchable": false,
-                "bSortable": false,
                 "bVisible" : false,
                 "fnRender": function (oObj) {
                     return getGestion(oObj.aData.clientes_gestiones,1) ;
                 }
             },
 	        { "mDataProp": "localidad_id",	//puse localidad_id porque si no pones ninguno se buguea la tabla
-                "bSearchable": false,
-                "bSortable": false,
                 "bVisible" : false,
                 "fnRender": function (oObj) {
                     return getGestion(oObj.aData.clientes_gestiones,0) ;

@@ -20,6 +20,8 @@ ActiveSupport::Inflector.inflections do |inflect|
   inflect.irregular 'licenciasLog', 'licenciasLogs'
   inflect.irregular 'estado','estados'
   inflect.irregular 'gestion','gestiones'
+  inflect.irregular 'terminal','terminales'
+  inflect.irregular 'ClientesTerminal','ClientesTerminales'
  end
 
 

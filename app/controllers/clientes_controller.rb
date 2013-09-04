@@ -30,6 +30,7 @@ class ClientesController < ApplicationController
     @cliente_contactos = ClientesContacto.where(["cliente_id = ?", @cliente])
     @cliente_licencias = ClientesLicencia.where(["cliente_id = ?", @cliente])
     @cliente_gestiones = ClientesGestion.where("cliente_id = ?", @cliente).order('created_at DESC')
+    @cliente_terminales = ClientesTerminal.where(["cliente_id = ?", @cliente])
   end
 
   # POST /clientes

@@ -1,20 +1,22 @@
 <div class="container-fluid">
    <div class="row-fluid">
-     <div class="span3">
+     <div class="span2">
        <div class="well sidebar-nav sidebar-nav-fixed">
          <ul class="nav nav-list">
            <li class="nav-header">SEGURIDAD</li>
            <li class="<%= 'active' if current_page?('/log') %>"><%= link_to "<i class=\"icon icon-play\"></i>  &nbsp; Visor de Logs".html_safe, '/log' %></li>
            <li class="divider"></li>
-           <li class="nav-header">OPCIONES GENERALES</li>
+           <li class="nav-header">OPCIONES</li>
            <li class="<%= 'active' if current_page?(clientes_path) %>"><%= link_to "<i class=\"icon icon-play\"></i> &nbsp; Clientes".html_safe, clientes_path %></li>
            <li class="<%= 'active' if current_page?(productos_path) %>"><%= link_to "<i class=\"icon icon-play\"></i> &nbsp; Productos".html_safe, productos_path %></li>
           <li class="<%= 'active' if current_page?(licencias_path) %>"><%= link_to "<i class=\"icon icon-play\"></i> &nbsp; Licencias".html_safe, licencias_path %></li>
           <li class="<%= 'active' if current_page?(estados_path) %>"><%= link_to "<i class=\"icon icon-play\"></i> &nbsp; Estados".html_safe, estados_path %></li>
           <li class="<%= 'active' if current_page?(paises_path) %>"><%= link_to "<i class=\"icon icon-play\"></i> &nbsp; Países".html_safe, paises_path %></li>
+          <li class="<%= 'active' if current_page?(clientes_contactos_path) %>"><%= link_to "<i class=\"icon icon-play\"></i> &nbsp; Contactos".html_safe, clientes_contactos_path %></li>
+          <li class="<%= 'active' if current_page?(tipo_terminales_path) %>"><%= link_to "<i class=\"icon icon-play\"></i> &nbsp; Tipo de Terminales".html_safe, tipo_terminales_path %></li>
          </ul>
        </div><!--/.well -->
      </div><!--/span-->
-     <div class="span9">
+     <div class="span10">
 
       

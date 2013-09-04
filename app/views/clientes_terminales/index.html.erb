@@ -1,0 +1,35 @@
+<h1>Listing clientes_terminales</h1>
+
+<table>
+  <tr>
+    <th>Tipo</th>
+    <th>Cliente</th>
+    <th>Valor1</th>
+    <th>Valor2</th>
+    <th>Valor3</th>
+    <th>Valor4</th>
+    <th>Referencia</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clientes_terminales.each do |clientes_terminal| %>
+  <tr>
+    <td><%= clientes_terminal.tipo_id %></td>
+    <td><%= clientes_terminal.cliente_id %></td>
+    <td><%= clientes_terminal.valor1 %></td>
+    <td><%= clientes_terminal.valor2 %></td>
+    <td><%= clientes_terminal.valor3 %></td>
+    <td><%= clientes_terminal.valor4 %></td>
+    <td><%= clientes_terminal.referencia %></td>
+    <td><%= link_to 'Show', clientes_terminal %></td>
+    <td><%= link_to 'Edit', edit_clientes_terminal_path(clientes_terminal) %></td>
+    <td><%= link_to 'Destroy', clientes_terminal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clientes terminal', new_clientes_terminal_path %>

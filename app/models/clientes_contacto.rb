@@ -6,11 +6,8 @@ class ClientesContacto < ActiveRecord::Base
 	validates_numericality_of :telefono
 	validates_numericality_of :flgPrincipal
 
-	validates_presence_of :email
 	validates_presence_of :flgPrincipal
 	validates_presence_of :nombre
-	validates_presence_of :telefono
-
 
   	attr_accessible :email, :flgPrincipal, :nombre, :telefono, :cliente_id
 

@@ -3,12 +3,12 @@
 <div class="row-fluid">
   <div class="span12">  
     <div class="row-fluid">   
-      <div class="span6">
+      <div class="span4">
         <h2>Clientes</h2>
       </div>
-      <div class="span6" style="margin-top:17px;text-align:right">
+      <div class="span8" style="margin-top:17px">
  <%= select_tag "filtro_principal", options_for_select([["Todos",0], ["Vendidos",1],["En Gestión",2]], "Todos"), input_html: {class: 'span6'} %> 
- <%= select_tag "filtro_vista", options_for_select([ ["Datos Principales",0], ["Ultima Gestión",1]], "Datos Principales"), input_html: {class: 'span6'} %> 
+ <%= select_tag "filtro_vista", options_for_select([ ["Datos Principales",0], ["Ultima Gestión",1]], "Datos Principales"), input_html: {class: 'span8'} %> 
 
       </div>
     </div>
@@ -19,8 +19,9 @@
 
 <div id="tablaClientes">
   <%= render 'tabla_clientes' %>
+
 </div>
 
-<%= link_to 'Nuevo Cliente', new_cliente_path, :class => 'btn btn-primary' %>
+  <%= link_to 'Nuevo Cliente', new_cliente_path, :class => 'btn btn-primary', :id => :btnNuevoCliente %>
 
 </div>

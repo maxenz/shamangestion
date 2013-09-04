@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  tipo_id: 1
+  cliente_id: 1
+  valor1: MyString
+  valor2: MyString
+  valor3: MyString
+  valor4: MyString
+  referencia: MyString
+
+two:
+  tipo_id: 1
+  cliente_id: 1
+  valor1: MyString
+  valor2: MyString
+  valor3: MyString
+  valor4: MyString
+  referencia: MyString

@@ -7,6 +7,5 @@ module LicenciasLogsHelper
 		else
 			return cliente.razonSocial
 		end
-
 	end
 end

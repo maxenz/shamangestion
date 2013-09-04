@@ -1,28 +1,34 @@
+
 <div class="contenedorPrincipal">
 
   <h2>Contactos</h2>
-  <hr>
-
-
-<table>
-  <thead>
-  <tr>
-    <th>Nombre</th>
-    <th>Email</th>
-    <th>Telefono</th>
-  </tr>
-</thead>
-<tbody>
-<% @clientes_contactos.each do |cliente_contacto| %>
-  <tr>
-    <td><%= cliente_contacto.nombre %></td>
-    <td><%= cliente_contacto.email %></td>
-    <td><%= cliente_contacto.cliente.razonSocial %></td>
-  </tr>
-<% end %>
-</tbody>
-</table>
-
-
+  <hr />
+  <div style="width:700px;margin-left:auto;margin-right:auto">
+  <table id="vstContactos" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered display">
+    <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Contacto</th>
+      <th>Email</th>
+      <th>Telefono</th>
+      <th>Principal</th>       
+    </tr>
+  </thead>
+  <tbody>
+  <% @clientes_contactos.each do |contacto| %>
+    <tr>
+      <td><%= contacto.cliente.razonSocial %></td>
+      <td><%= contacto.nombre %></td>
+      <td><%= contacto.email %></td>
+      <td><%= contacto.telefono %></td>
+      <td style="text-align:center"><%= set_star_tabla(contacto).html_safe %></td>            
+    </tr>
+  <% end %>
+  </tbody>
+  </table>
+  </div>
 </div>
+
+
+
 
