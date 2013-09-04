@@ -18,7 +18,7 @@ class Cliente < ActiveRecord::Base
 
 	validates_presence_of :clientes_contactos
 
-    accepts_nested_attributes_for :clientes_licencias, :clientes_gestiones, :clientes_contactos, :clientes_terminales
+    accepts_nested_attributes_for :clientes_licencias, :clientes_gestiones, :clientes_contactos, :clientes_terminales, :clientes_contactos
   	attr_accessible :dmAltura, :dmCalle, :dmDepto, :dmPiso, :dmReferencia, :domicilio, :fecIngreso, :razonSocial, :sitioWeb, :localidad_id, :clientes_gestiones_attributes,:clientes_contactos_attributes,:clientes_licencias_attributes,:clientes_terminales_attributes
   	
 end
