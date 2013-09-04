@@ -17,7 +17,7 @@
   <tr>
     <td><%= gestion.estado.descripcion %></td>
     <td><%= gestion.fecha %></td>
-    <td><%= gestion.observaciones %></td>
+    <td><%= check_length(gestion.observaciones,100) %></td>
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_cliente_clientes_gestion_path(@cliente,gestion) %></td>
     <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, cliente_clientes_gestion_path(@cliente,gestion), :class => 'delete_element', method: :delete, data: { confirm: 'Seguro que desea eliminar el registro?' } %></td>
   </tr>

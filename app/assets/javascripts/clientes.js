@@ -102,7 +102,8 @@ $(document).ready(function() {
 	    "bSort": false,
 	    "aLengthMenu": [[8, 10, 15, -1], [8, 10, 15, "All"]],
 	    "aoColumnDefs": [
-	      { "sWidth": "5%", "aTargets": [ 3,4 ] }
+	      { "sWidth": "10px", "aTargets": [ 3,4 ] },
+	      { "sWidth": "200px", "aTargets": [ 2 ] }
 	    ],
 	    "bSortClasses": false,
 	  	"oLanguage": {
