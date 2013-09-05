@@ -22,12 +22,6 @@ $(document).ready(function() {
 	  	"sPaginationType": "bootstrap",
 	    "iDisplayLength": 30,
 	    "aLengthMenu": [[15, 30, 45, -1], [15, 30, 45, "All"]],
-	    "bAutoWidth": false,
-    	"aoColumnDefs": [
-        	{ "sWidth": "25%", "aTargets": [ 0,1 ] },
-        	{ "sWidth": "12%", "aTargets": [ 2,3,4,5 ] },
-        	{ "sWidth": "2%", "aTargets": [ 6,7 ] },
-      	],
 	    "aoColumns": [
 	        { "mDataProp": "razonSocial" },
 	        { "mDataProp": "email" },
