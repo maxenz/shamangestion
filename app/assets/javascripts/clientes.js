@@ -1,5 +1,20 @@
 $(document).ready(function() {
 
+	jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+		"date-uk-pre": function ( a ) {
+		    var ukDatea = a.split('/');
+		    return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+		},
+
+		"date-uk-asc": function ( a, b ) {
+		    return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+		},
+
+		"date-uk-desc": function ( a, b ) {
+		    return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+		}
+	});
+
 	tClientes = $('#clientes').dataTable({
 	"fnDrawCallback": function(){
 	hoverBackgroundTable();
@@ -28,6 +43,7 @@ $(document).ready(function() {
             },
 	        { "mDataProp": "localidad_id",	//puse localidad_id porque si no pones ninguno se buguea la tabla
                 "bVisible" : false,
+                "sType": "date-uk",
                 "fnRender": function (oObj) {
                     return getGestion(oObj.aData.clientes_gestiones,0) ;
                 }
@@ -50,7 +66,6 @@ $(document).ready(function() {
             },
 	             
 		],
-	    "bSortClasses": false,
 	  	"oLanguage": {
 	     	"sSearch" : "Buscar:"
 	    },
@@ -195,7 +210,7 @@ $(document).ready(function() {
 
 		} else {
 
-			return "SIN GESTION";
+			return "01/01/2000";
 
 		}
 	}
