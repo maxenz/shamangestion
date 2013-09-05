@@ -225,8 +225,9 @@ $(document).ready(function() {
 
 		} else {
 
-			return "01/01/2000";
-
+			if (pFiltro == 0) return "01/01/2000";
+			if (pFiltro == 1) return "SIN GESTION"; 
+			
 		}
 	}
 
