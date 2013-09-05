@@ -22,8 +22,17 @@ $(document).ready(function() {
 	  	"sPaginationType": "bootstrap",
 	    "iDisplayLength": 30,
 	    "aLengthMenu": [[15, 30, 45, -1], [15, 30, 45, "All"]],
+	    "bAutoWidth": false,
+    	"aoColumnDefs": [
+        	{ "sWidth": "25%", "aTargets": [ 0,1 ] },
+        	{ "sWidth": "12%", "aTargets": [ 2,3,4,5,6,7 ] },
+        	{ "sWidth": "2%", "aTargets": [ 8,9 ] },
+      	],
 	    "aoColumns": [
-	        { "mDataProp": "razonSocial" },
+	        { "mDataProp": "razonSocial",
+	        "fnRender": function(oObj){
+	        	return restringirLength(oObj.aData.razonSocial);
+	        } },
 	        { "mDataProp": "email" },
 	        { "mDataProp": "telefono" },
 	        { "mDataProp" : "localidad.provincia.pais.descripcion"},
@@ -147,6 +156,18 @@ $(document).ready(function() {
 
 
 	});
+
+	function restringirLength(razonSocial) {
+
+		if (razonSocial.length > 40) {
+
+			return razonSocial.substr(0,40) + ' ...';
+
+		} else {
+
+			return razonSocial;
+		}
+	}
 
 
 	function refresh(filtro_id) {
