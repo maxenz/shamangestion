@@ -37,6 +37,8 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1-x86-mingw32)
+    bootstrap-datepicker-rails (1.1.1.7)
+      railties (>= 3.0)
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -139,6 +141,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
+  bootstrap-datepicker-rails
   coffee-rails (~> 3.2.1)
   country_select
   debugger

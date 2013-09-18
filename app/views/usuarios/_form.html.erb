@@ -1,0 +1,15 @@
+<div class="contenedorPrincipal">
+  <%= simple_form_for(@usuario, :html => {:class => 'formPrincipal'}) do |f| %>
+    <h3>Formulario de Registro de Productos</h3>
+    <hr />
+
+    <%= f.input :descripcion, label: 'Usuario' %>
+    <%= f.input :password,label: 'Password' %>
+    <%= f.input :email, label: 'Email' %>
+    <%= f.input :nombre, label: 'Nombre' %>
+    <%= f.input :apellido, label: 'Apellido' %>
+    <%= f.input :fec_nacimiento, :as => :string, :input_html => { data: {behaviour: "datepicker"}} %>         
+    <%= f.button :submit, 'Guardar', :class => 'btn btn-success' %>
+
+  <% end %>
+</div>

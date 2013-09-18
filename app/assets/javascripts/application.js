@@ -16,9 +16,16 @@
 //= require twitter/bootstrap/rails/confirm
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
+//= require bootstrap-datepicker
 //= require_tree .
 
 $(document).ready(function(){
+
+	$('[data-behaviour~=datepicker]').datepicker({
+		"format": "dd-mm-yyyy",
+		"weekStart": 1,
+		"autoclose": true
+	});
 
    	$('.delete_element').bind('ajax:success', function() {
 		 $(this).closest('tr').fadeOut();

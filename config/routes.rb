@@ -1,5 +1,8 @@
 Shamangestion::Application.routes.draw do
 
+  resources :usuarios
+
+
   get "clientes_gestiones/new"
 
   get "clientes_gestiones/destroy"
