@@ -1,0 +1,31 @@
+
+    <table id="usuarios_clientes" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered display">
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Cliente</th>
+          <th>Shaman Full Id</th>
+          <th>Shaman Express Id</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @usuarios_clientes.each do |uscli| %>
+          <tr>
+            <td><%= uscli.usuario.descripcion %></td>
+            <td><%= uscli.cliente.razonSocial %></td>
+            <td><%= uscli.shaman_full_id %></td>  
+            <td><%= uscli.shaman_express_id %></td>       
+            <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_usuarios_cliente_path(uscli) %></td>
+            <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, uscli, :class => 'delete_element', method: :delete, data: { confirm: 'Está seguro que desea eliminar el usuario/cliente?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+  <br />
+<div style="text-align:center">
+  <%= link_to 'Nuevo Usuario/Cliente', "../../usuarios_clientes/new?cli=#{@cliente.id}", :class => 'btn btn-info btnNuevo' %>
+</div>

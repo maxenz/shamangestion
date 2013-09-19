@@ -50,7 +50,7 @@ $(document).ready(function() {
                 "fnRender": function (oObj) {
                     return getGestion(oObj.aData.clientes_gestiones,0) ;
                 }
-            },   
+            },  
 	        { "mDataProp": "dmAltura",	//puse dmAltura porque si no pones ninguno se buguea la tabla
                 "bSearchable": false,
                 "bSortable": false,

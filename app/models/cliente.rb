@@ -6,6 +6,8 @@ class Cliente < ActiveRecord::Base
 	has_many :clientes_gestiones, :dependent => :destroy
 	has_many :clientes_terminales, :dependent => :destroy
 	has_many :licencias, :through => :clientes_licencias
+	has_many :usuarios_clientes, :dependent => :destroy
+	has_many :usuarios, through: :usuarios_clientes
 
 	validates_presence_of :razonSocial
 	validates_uniqueness_of :razonSocial

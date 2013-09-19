@@ -165,4 +165,18 @@ h2 {
     width:100%;
 }
 
+.accordion-group {
+
+    border-color: #007fff;
+    text-align: center;
+    background-color:#eeeeee;
+}
+
+#tabPrincipal {
+
+    margin-top:-25px;
+}
+
+
+
 

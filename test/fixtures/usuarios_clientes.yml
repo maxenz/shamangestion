@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  usuario_id: 1
+  cliente_id: 1
+  shaman_full_id: 1
+  shaman_express_id: 1
+
+two:
+  usuario_id: 1
+  cliente_id: 1
+  shaman_full_id: 1
+  shaman_express_id: 1

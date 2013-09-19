@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @usuarios_cliente.usuario_id %>
+</p>
+
+<p>
+  <b>Cliente:</b>
+  <%= @usuarios_cliente.cliente_id %>
+</p>
+
+<p>
+  <b>Shaman full:</b>
+  <%= @usuarios_cliente.shaman_full_id %>
+</p>
+
+<p>
+  <b>Shaman express:</b>
+  <%= @usuarios_cliente.shaman_express_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_usuarios_cliente_path(@usuarios_cliente) %> |
+<%= link_to 'Back', usuarios_clientes_path %>

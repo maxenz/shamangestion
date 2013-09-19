@@ -1,7 +1,8 @@
 Shamangestion::Application.routes.draw do
 
-  resources :usuarios
+  resources :usuarios_clientes 
 
+  resources :usuarios
 
   get "clientes_gestiones/new"
 

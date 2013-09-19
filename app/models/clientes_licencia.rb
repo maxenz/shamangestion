@@ -10,4 +10,5 @@ class ClientesLicencia < ActiveRecord::Base
 	validates_presence_of :licencia_id
 	
   attr_accessible :cliente_id, :cnn_catalog, :cnn_data_source, :cnn_pass, :cnn_user, :licencia_id, :fecha_de_vencimiento
+  
 end

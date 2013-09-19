@@ -1,0 +1,15 @@
+<div class="contenedorPrincipal">
+  <%= simple_form_for(@usuarios_cliente, :html => {:class => 'formPrincipal'}) do |f| %>
+    <h3>Registro de Usuarios/Clientes</h3>
+    <hr />
+
+    <%= f.input :usuario_id,collection: Usuario.all(order: 'descripcion'), label_method: :descripcion, value_method: :id  %>
+    <%= f.input :cliente_id,collection: Cliente.all(order: 'razonSocial'), label_method: :razonSocial, value_method: :id  %>
+    <%= f.input :shaman_full_id, label: 'Shaman Full Id' %>
+    <%= f.input :shaman_express_id, label: 'Shaman Express Id' %>        
+    <%= f.button :submit, 'Guardar', :class => 'btn btn-success' %>
+
+  <% end %>
+
+
+</div>

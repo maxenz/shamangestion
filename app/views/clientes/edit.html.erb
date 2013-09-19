@@ -1,9 +1,19 @@
-<div style="background-color:#eeeeee">
-<%= simple_form_for(@cliente, :html => {:class => 'formPrincipal'}) do |f| %>
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#tabPrincipal" data-toggle="tab">Datos del Cliente</a></li>
+  <li><a href="#tabContactos" data-toggle="tab">Contactos</a></li>
+  <li><a href="#tabLicencias" data-toggle="tab">Licencias</a></li>
+  <li><a href="#tabGestiones" data-toggle="tab">Gestiones</a></li>
+  <li><a href="#tabTerminales" data-toggle="tab">Terminales</a></li>
+  <li><a href="#tabUsuarios" data-toggle="tab">Usuarios</a></li>
+</ul>
+ 
+<div class="tab-content">
+  <div class="tab-pane active" id="tabPrincipal">
 
-    <h2 style="text-align:center">Formulario de Registro de Clientes</h2>
-      <hr />
-        <div class="container-fluid">       
+    <%= simple_form_for(@cliente, :html => {:class => 'formPrincipal'}) do |f| %>
+
+    <h2 style="text-align:center">Registro de Clientes</h2>
+        <div class="container-fluid" style="background-color:#eeeeee;padding-top:10px;padding-bottom:10px">       
       <div class="row-fluid">
         <div class="span12">  
 
@@ -58,9 +68,22 @@
     </div><!--/.fluid-container-->
  
 <% end %>
-<%= render 'contactos' %>
-<%= render 'licencias' %>
-<%= render 'gestiones' %>
-<%= render 'terminales' %>
-
+  </div>
+  <div class="tab-pane" id="tabContactos">
+    <%= render 'contactos' %>
+  </div>
+  <div class="tab-pane" id="tabLicencias">
+    <%= render 'licencias' %>
+  </div>
+  <div class="tab-pane" id="tabGestiones">
+    <%= render 'gestiones' %>
+  </div>
+  <div class="tab-pane" id="tabTerminales">
+    <%= render 'terminales' %>
+  </div>
+  <div class="tab-pane" id="tabUsuarios">
+    <%= render 'usuarios' %>
+  </div>
 </div>
+
+
