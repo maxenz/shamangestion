@@ -7,6 +7,7 @@
     <th>Catalog</th>
     <th>User</th>
     <th>Password</th>
+    <th>Conexion / Servidor</th>
     <th></th>
     <th></th>
   </tr>
@@ -19,6 +20,7 @@
     <td><%= lic.cnn_catalog %></td>
     <td><%= lic.cnn_user %></td>
     <td><%= lic.cnn_pass %></td>
+    <td><%= lic.conexion_servidor %></td>    
     <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, edit_cliente_clientes_licencia_path(@cliente,lic) %></td>
     <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, cliente_clientes_licencia_path(@cliente,lic), :class => 'delete_element', method: :delete, data: { confirm: 'Seguro que desea eliminar el registro?' } %></td>
   </tr>
