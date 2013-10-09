@@ -1,0 +1,14 @@
+<div class="contenedorPrincipal">
+
+  <%= simple_form_for([@producto,@productos_modulo], :html => {:class => 'formPrincipal'}) do |f| %>
+    <h3>Registro de Producto/Modulos</h3>
+    <hr />
+
+    <%= f.input :producto_id,collection: Producto.all(order: 'descripcion'), label_method: :descripcion, value_method: :id  %>
+    <%= f.input :abreviatura_id, label: 'Código' %>
+    <%= f.input :descripcion, label: 'Descripción' %>        
+    <%= f.button :submit, 'Guardar', :class => 'btn btn-success' %>
+
+  <% end %>
+
+</div>

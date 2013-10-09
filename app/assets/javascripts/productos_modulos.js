@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	tProductos = $('#productos').dataTable({
+	tProductosModulos = $('#productos_modulos').dataTable({
 	    "fnDrawCallback": function(){
 	      hoverBackgroundTable();
 	    },
@@ -8,8 +8,7 @@ $(document).ready(function() {
 	    "iDisplayLength": 8,
 	    "aLengthMenu": [[8, 10, 15, -1], [8, 10, 15, "All"]],
 	    "aoColumnDefs": [
-	      { "sWidth": "5%", "aTargets": [ 2,3,4] },
-	      { "sWidth": "12%", "aTargets": [ 0] }
+	      { "sWidth": "5%", "aTargets": [ 2,3] }
 	    ],
 	    "bSortClasses": false,
 	  	"oLanguage": {

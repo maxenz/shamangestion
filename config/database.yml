@@ -17,8 +17,8 @@ development:
 production:
   adapter: mysql2
   encoding: utf8
-  database: gestion_production
+  database: gestion
   username: maxenz
   password: elmaxo
-  host: 127.0.0.1
+  host: log
   port: 3306

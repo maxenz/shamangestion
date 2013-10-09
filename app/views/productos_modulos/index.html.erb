@@ -1,0 +1,33 @@
+<div class="contenedorPrincipal">
+
+  <h2>Producto / Modulo</h2>
+  <hr>
+  <div style="width:900px;margin-left:auto;margin-right:auto">
+    <table id="productos_modulos" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered display">
+      <thead>
+        <tr>
+          <th>C&oacute;digo</th>
+          <th>Descripcion</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @productos_modulos.each do |prodmod| %>
+          <tr>
+            <td><%= prodmod.abreviatura_id %></td>
+            <td><%= prodmod.descripcion %></td>       
+            <td><%= link_to '<i class="icon-pencil icon-black"></i>'.html_safe, "/productos/#{@producto.id}/productos_modulos/#{prodmod.id}/edit" %></td>
+            <td><%= link_to '<i class="icon-remove icon-black"></i>'.html_safe, "/productos/#{@producto.id}/productos_modulos/#{prodmod.id}", :class => 'delete_element', method: :delete, data: { confirm: 'Está seguro que desea eliminar el modulo del producto?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <br />
+
+<%= link_to 'Nuevo Modulo', new_producto_productos_modulo_path(@producto), :class => 'btn btn-primary' %>
+
+</div>
+

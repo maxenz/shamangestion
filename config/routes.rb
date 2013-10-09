@@ -24,7 +24,9 @@ Shamangestion::Application.routes.draw do
 
   resources :licencias
 
-  resources :productos
+  resources :productos do
+    resources :productos_modulos
+  end
 
   resources :clientes do
     resources :clientes_contactos
