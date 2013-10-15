@@ -1,5 +1,11 @@
 Shamangestion::Application.routes.draw do
 
+  resources :clientes_licencias_productos_productos_modulos
+
+
+  resources :clientes_licencias_productos
+
+
   resources :usuarios_clientes 
 
   resources :usuarios
@@ -30,7 +36,10 @@ Shamangestion::Application.routes.draw do
 
   resources :clientes do
     resources :clientes_contactos
-    resources :clientes_licencias
+    resources :clientes_licencias do
+      get 'set_modulos'
+      post 'guardar_borrar_modulos'
+    end
     resources :clientes_gestiones
     resources :clientes_terminales
   end

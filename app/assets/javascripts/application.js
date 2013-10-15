@@ -43,6 +43,7 @@ $(document).ready(function(){
     	"sWrapper": "dataTables_wrapper form-inline"
 	});
 
+
 });
 
 function hoverBackgroundTable() {

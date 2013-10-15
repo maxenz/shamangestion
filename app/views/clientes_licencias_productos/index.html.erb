@@ -1,0 +1,21 @@
+<h1>Listing clientes_licencias_productos</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clientes_licencias_productos.each do |clientes_licencias_producto| %>
+  <tr>
+    <td><%= link_to 'Show', clientes_licencias_producto %></td>
+    <td><%= link_to 'Edit', edit_clientes_licencias_producto_path(clientes_licencias_producto) %></td>
+    <td><%= link_to 'Destroy', clientes_licencias_producto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clientes licencias producto', new_clientes_licencias_producto_path %>

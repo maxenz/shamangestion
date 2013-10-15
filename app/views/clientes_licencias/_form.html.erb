@@ -10,9 +10,44 @@
     <%= f.input :cnn_pass, :label => 'Password' %>
     <%= f.input :conexion_servidor, :label => 'Servidor' %>    
     <%= f.input :fecha_de_vencimiento, :label => 'Fecha de Vencimiento' %>
+
+<input type="hidden" id="cliLicId" value="<%= @clientes_licencia.id %>" />
+
+<p style="font-weight:bold">Productos</p>
+    <table style="margin-left:auto;margin-right:auto" class="tbProductos">
+  <% for producto in Producto.find(:all) %>   
+        <tr>
+          <td>
+      <label class="checkbox" style="width:200px">
+        <%= check_box_tag "clientes_licencia[producto_ids][]", producto.id, @clientes_licencia.productos.include?(producto) %>  
+        <%= producto.descripcion %>
+      </label>
+    </td>
+
+    <td>
+        <button type="button" class="btn btn-primary verModulos" style="margin-left:15px">
+          <i class="icon-user icon-white"></i> M&oacute;dulos
+        </button>
+    </td>
+  </tr>  
+  <% end %> 
+</table>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, 'Guardar', :class => 'btn btn-primary' %>
   </div>
 <% end %>
+
+<div class="modal hide fade" id="modalMaxo">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h3>M&oacute;dulos a excluir</h3>
+  </div>
+  <div class="modal-body">
+    <%= render 'modulos' %>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn btn-primary" id="btnGuardarModulos">Guardar cambios</a>
+  </div>
+</div>

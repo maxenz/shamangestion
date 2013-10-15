@@ -82,6 +82,7 @@ class ClientesLicenciasController < ApplicationController
   # DELETE /clientes_licencias/1
   # DELETE /clientes_licencias/1.json
   def destroy
+    
     @clientes_licencia = ClientesLicencia.find(params[:id])
     @clientes_licencia.destroy
 
@@ -90,4 +91,60 @@ class ClientesLicenciasController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def set_modulos
+
+    pId = params[:pId].to_i
+    clId = params[:clId].to_i
+
+    cliLicProd = ClientesLicenciasProducto.where(["clientes_licencia_id = ? AND producto_id = ?", clId,pId]).first()
+
+    cliLicProdModSel = cliLicProd.productos_modulos
+
+    cliLicProdMod = ProductosModulo.where(["producto_id = ?", pId])
+
+    prod = Producto.find(pId)
+
+    respond_to do |format|
+      format.html  # index.html.erb 
+      format.json {
+        render :json => {
+          :modulos => cliLicProdMod,
+          :seleccionModulos => cliLicProdModSel,
+          :producto => prod,
+          :cliLicProdId => cliLicProd.id,
+        }
+      }      
+    end
+
+  end
+
+  def guardar_borrar_modulos
+
+    vModExc = params[:vModExc]
+    cliLicProdId = params[:cliLicProdId]
+
+    @modExcluir = ClientesLicenciasProductosProductosModulo.where(["clientes_licencias_producto_id = ?", cliLicProdId])
+
+    @modExcluir.each do |item|
+      item.destroy
+    end
+
+    vModExc.each do |item|
+      modExc = ClientesLicenciasProductosProductosModulo.new
+      modExc.clientes_licencias_producto_id = cliLicProdId
+      modExc.productos_modulo_id = item
+      modExc.save
+    end
+
+     respond_to do |format|
+      format.html  # index.html.erb 
+      format.json {
+        render :json => {
+          :vModExc => vModExc,
+        }
+      }      
+    end
+  end
+
 end

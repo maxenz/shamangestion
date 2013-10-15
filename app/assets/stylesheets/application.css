@@ -144,9 +144,11 @@ h2 {
 }
 
 .table td {
-  overflow: hidden; /* this is what fixes the expansion */
-  text-overflow: ellipsis; /* not supported in all browsers, but I accepted the tradeoff */
-  white-space: nowrap;
+
+    overflow: hidden; /* this is what fixes the expansion */
+    text-overflow: ellipsis; /* not supported in all browsers, but I accepted the tradeoff */
+    white-space: nowrap;
+
 }
 
 #btnNuevoCliente {
@@ -176,6 +178,43 @@ h2 {
 
     margin-top:-25px;
 }
+
+#listModulosExcluir > .active > a, .nav-list > .active > a:hover {
+
+    background:#0f82f5;
+
+}
+
+#listModulosExcluir >li >a {
+
+    color:black;
+    font-family: "Open Sans",Arial,Helvetica,Sans-Serif;
+    font-size: 14px;
+
+}
+
+#listModulosExcluir > li > a:hover, .nav-list > li > a.active{
+
+    background:#0f82f5;
+    color: white;
+    text-shadow:0 0px 0;    
+
+}
+
+#listModulosExcluir {
+
+    color:#0f82f5;
+    font-weight:bold;
+
+}
+
+#listModulosExcluir .divider {
+
+    background-color:#0f82f5;
+
+}
+
+
 
 
 

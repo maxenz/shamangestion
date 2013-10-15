@@ -10,6 +10,7 @@ class Cliente < ActiveRecord::Base
 	has_many :usuarios, through: :usuarios_clientes
 
 	validates_presence_of :razonSocial
+	
 	validates_uniqueness_of :razonSocial
 
 	validates_numericality_of :dmAltura, :allow_nil => true
